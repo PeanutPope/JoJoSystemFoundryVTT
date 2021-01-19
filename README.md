@@ -4,7 +4,7 @@ A JoJo'S Bizarre Adventuer System For FoundryVTT.
 
 !! In Development !!
 
-Check Readme Before Updating To A Newer Version.
+Check The Readme Before Updating To A Newer Version.
 
 ## Features
 
