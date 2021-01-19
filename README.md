@@ -9,17 +9,17 @@ Check The README Before Updating To A Newer Version.
 ## Features
 
 ### Implimented
--Stand Graph
--Automated Health Rolls
--Stand And Character Roll
+-Stand Graph <br>
+-Automated Health Rolls<br>
+-Stand And Character Roll<br>
 
 ### Planned
--Limit Stand Token Movement Distance/Range
--Automatically Add Features To Sheet
--List of Traits In The Roll Popup
--Bizarre Field
--VIllainous Actions
--Updated Journal Look
+-Limit Stand Token Movement Distance/Range<br>
+-Automatically Add Features To Sheet<br>
+-List of Traits In The Roll Popup<br>
+-Bizarre Field<br>
+-VIllainous Actions<br>
+-Updated Journal Look<br>
 
 ## Known Problems
--Automatic Health Rolls Require Features From The Compendium
+-Automatic Health Rolls Require Features From The Compendium<br>
