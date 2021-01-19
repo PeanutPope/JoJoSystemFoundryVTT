@@ -1,0 +1,526 @@
+@import url("https://fonts.googleapis.com/css2?family=Martel:wght@400;800&family=Roboto:wght@300;400;500&display=swap");
+/* Global styles */
+.window-app {
+  font-family: "Roboto", sans-serif;
+}
+
+.rollable:hover, .rollable:focus {
+  color: white;
+  text-shadow: 0 0 10px #ff0077;
+  cursor: pointer;
+}
+
+.window-content {
+  color: #d1d1d1;
+  background: #141414;
+  background: -webkit-gradient(linear, left top, right top, color-stop(12%, rgba(20, 20, 20, 0.874854)), to(rgba(37, 31, 51, 0.886059))), url("https://cdn.discordapp.com/attachments/779096091009482752/791815520411975731/backgroundjojo.png");
+  background: -o-linear-gradient(left, rgba(20, 20, 20, 0.874854) 12%, rgba(37, 31, 51, 0.886059) 100%), url("https://cdn.discordapp.com/attachments/779096091009482752/791815520411975731/backgroundjojo.png");
+  background: linear-gradient(90deg, rgba(20, 20, 20, 0.874854) 12%, rgba(37, 31, 51, 0.886059) 100%), url("https://cdn.discordapp.com/attachments/779096091009482752/791815520411975731/backgroundjojo.png");
+}
+
+.window-content .input {
+  color: #c1c1c1;
+}
+
+::-moz-selection {
+  color: #fdfdfd;
+  background: rgba(66, 32, 61, 0.767);
+}
+
+::selection {
+  color: #fdfdfd;
+  background: rgba(66, 32, 61, 0.767);
+}
+
+.grid,
+.grid-2col {
+  display: grid;
+  grid-column: span 2 / span 2;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin: 10px 0;
+  padding: 0;
+}
+
+.grid-3col {
+  grid-column: span 3 / span 3;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.grid-4col {
+  grid-column: span 4 / span 4;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.grid-5col {
+  grid-column: span 5 / span 5;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.grid-6col {
+  grid-column: span 5 / span 5;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.grid-7col {
+  grid-column: span 7 / span 7;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+}
+
+.grid-8col {
+  grid-column: span 8 / span 8;
+  grid-template-columns: repeat(8, minmax(0, 1fr));
+}
+
+.grid-9col {
+  grid-column: span 9 / span 9;
+  grid-template-columns: repeat(9, minmax(0, 1fr));
+}
+
+.grid-10col {
+  grid-column: span 10 / span 10;
+  grid-template-columns: repeat(10, minmax(0, 1fr));
+}
+
+.grid-11col {
+  grid-column: span 11 / span 11;
+  grid-template-columns: repeat(11, minmax(0, 1fr));
+}
+
+.grid-12col {
+  grid-column: span 12 / span 12;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+}
+
+.flex-group-center,
+.flex-group-left,
+.flex-group-right {
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  text-align: center;
+  padding: 5px;
+  border: 1px solid #999;
+}
+
+.flex-group-left {
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  text-align: left;
+}
+
+.flex-group-right {
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  text-align: right;
+}
+
+.flex-center {
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.flex-between {
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+/* Styles limited to jojo sheets */
+.jojo .wholesheet input {
+  color: #ffffff;
+  background: #303030;
+}
+
+.jojo .wholesheet select {
+  color: #ffffff;
+  background: #303030;
+}
+
+.jojo .item-form {
+  font-family: "Roboto", sans-serif;
+}
+
+.jojo .sheet-header {
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  margin-bottom: 10px;
+  border: 1px solid #9e9e9e;
+}
+
+.jojo .sheet-header .header-left {
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 150px;
+  flex: 0 0 150px;
+  margin-right: 10px;
+}
+
+.jojo .sheet-header .header-left .profile-img {
+  width: 145px;
+  height: 145px;
+  border: 1px solid #9e9e9e;
+  margin: 5px;
+}
+
+.jojo .sheet-header .header-left .movement {
+  height: 65px;
+}
+
+.jojo .sheet-header .header-left .movement .movement-label {
+  width: 150px;
+  font-weight: bold;
+}
+
+.jojo .sheet-header .header-left .movement .speed {
+  width: 140px;
+}
+
+.jojo .sheet-header .feature-profile-img {
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 30px;
+  flex: 0 0 30px;
+  height: 30px;
+  margin-right: 10px;
+}
+
+.jojo .sheet-header .feature-dice {
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 30px;
+  flex: 0 0 30px;
+  height: 30px;
+  margin-left: 10px;
+}
+
+.jojo .sheet-header h1.feature-charname {
+  height: 30px;
+  width: 350px;
+  padding: 0px;
+  margin: 1px 0;
+  border-bottom: 0;
+}
+
+.jojo .sheet-header h1.feature-charname input {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  color: white;
+}
+
+.jojo .sheet-header h1.feature-charname .header-right {
+  width: 250px;
+}
+
+.jojo .sheet-header h1.feature-charname .header-right .header-fields {
+  margin-bottom: 10px;
+}
+
+.jojo .sheet-header h1.feature-charname .numberbox {
+  width: 26px;
+}
+
+.jojo .sheet-header h1.feature-charname .attribute-stat {
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  text-align: center;
+  height: 70px;
+}
+
+.jojo .sheet-header h1.feature-charname .attribute-stat .attribute-label {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.jojo .sheet-tabs {
+  -webkit-box-flex: 0;
+  -ms-flex: 0;
+  flex: 0;
+}
+
+.jojo .sheet-body,
+.jojo .sheet-body .tab,
+.jojo .sheet-body .tab .editor {
+  height: 100%;
+}
+
+.jojo .sheet-body {
+  height: 100%;
+  border: 1px solid #b1b1b1;
+}
+
+.jojo .tox .tox-editor-container {
+  background: #fff;
+}
+
+.jojo .tox .tox-edit-area {
+  padding: 0 8px;
+  height: 100%;
+}
+
+.jojo .jojo.sheet.actor form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.jojo .jojo.sheet.actor .tab biography {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.jojo .jojo.sheet.actor .tab biography .editor {
+  height: 100%;
+  min-height: 60px;
+}
+
+.jojo .jojo.sheet.actor .tab biography .biography-editor {
+  height: 100%;
+  min-height: 60px;
+}
+
+.jojo .jojo.sheet.actor .tab biography .arakisheet-list .arakisheet {
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.jojo .jojo.sheet.actor .tab biography .arakisheet-list .arakisheet .arakisheet-label {
+  font-weight: bold;
+}
+
+.jojo .jojo.sheet.actor .tab biography .arakisheet-list .arakisheet .arakisheet-editbox .arakisheet-textbox li {
+  background-color: violet;
+}
+
+.jojo .jojo.sheet.actor .tab biography .arakisheet-list .arakisheet .arakisheet-editbox .arakisheet-textbox li:nth-child(odd) {
+  background-color: purple;
+}
+
+.jojo .standstat-label {
+  font-weight: bold;
+  text-align: center;
+  margin: 5px;
+}
+
+.jojo .standtext {
+  margin-bottom: 5px;
+}
+
+.jojo .standstatsbox-left {
+  float: left;
+  margin-right: 5px;
+  margin-top: 50px;
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 265px;
+  flex: 0 0 265px;
+  height: 300px;
+}
+
+.jojo .standstatsbox-left .standstat-dice {
+  margin-right: 5px;
+  text-align: center;
+}
+
+.jojo .standstatsbox-left .attribute-dice {
+  text-align: center;
+  border: 1px solid #b1b1b1;
+}
+
+.jojo .standstatsbox-left .slider {
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 100px;
+  flex: 0 0 100px;
+  margin-right: 10px;
+  border: 1px solid #b1b1b1;
+}
+
+.jojo .standstatsbox-left .standstatsbox-small {
+  height: 40px;
+}
+
+.jojo .arakisheet-textbox li {
+  background-color: violet;
+}
+
+.jojo .arakisheet-textbox li:nth-child(odd) {
+  background-color: purple;
+}
+
+.jojo .hidefield {
+  display: none;
+}
+
+.jojo .editor-content {
+  height: 100%;
+  min-height: 100px;
+  margin-left: 14px;
+  margin-right: 5px;
+}
+
+.jojo .label {
+  font-weight: bold;
+}
+
+.jojo .label-header {
+  font-weight: bold;
+  text-align: center;
+}
+
+.jojo .charpoints-types {
+  padding: 5px;
+  border: 1px solid #999999;
+}
+
+.jojo .window-content {
+  color: #d1d1d1;
+  background: #141414;
+  background: -webkit-gradient(linear, left top, right top, color-stop(12%, rgba(20, 20, 20, 0.874854)), to(rgba(37, 31, 51, 0.886059))), url("https://cdn.discordapp.com/attachments/779096091009482752/791815520411975731/backgroundjojo.png");
+  background: -o-linear-gradient(left, rgba(20, 20, 20, 0.874854) 12%, rgba(37, 31, 51, 0.886059) 100%), url("https://cdn.discordapp.com/attachments/779096091009482752/791815520411975731/backgroundjojo.png");
+  background: linear-gradient(90deg, rgba(20, 20, 20, 0.874854) 12%, rgba(37, 31, 51, 0.886059) 100%), url("https://cdn.discordapp.com/attachments/779096091009482752/791815520411975731/backgroundjojo.png");
+}
+
+.jojo .window-content .input {
+  color: #c1c1c1;
+}
+
+.jojo ::-moz-selection {
+  color: #fdfdfd;
+  background: rgba(66, 32, 61, 0.767);
+}
+
+.jojo ::selection {
+  color: #fdfdfd;
+  background: rgba(66, 32, 61, 0.767);
+}
+
+.jojo .name-villain .charname {
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 300px;
+  flex: 0 0 300px;
+  padding: 0px;
+  margin: 5px 0;
+  border-bottom: 0;
+}
+
+.jojo .name-villain .charname .input {
+  height: 100%;
+  margin: 0;
+  -ms-flex-preferred-size: 300px;
+  flex-basis: 300px;
+  min-width: 300px;
+}
+
+.jojo .rollsclickable:hover, .jojo .rollsclickable:focus {
+  color: white;
+  text-shadow: 0 0 10px #ff0077;
+  cursor: pointer;
+}
+
+.jojo .resource-label {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.jojo .tabs {
+  height: 40px;
+  border-top: 1px solid #AAA;
+  border-bottom: 1px solid #AAA;
+  background: #0e0e0e;
+  background: -webkit-gradient(linear, left top, right top, from(rgba(14, 14, 14, 0.577936)), color-stop(28%, rgba(21, 13, 22, 0.292221)), to(rgba(38, 12, 41, 0.409868)));
+  background: -o-linear-gradient(left, rgba(14, 14, 14, 0.577936) 0%, rgba(21, 13, 22, 0.292221) 28%, rgba(38, 12, 41, 0.409868) 100%);
+  background: linear-gradient(90deg, rgba(14, 14, 14, 0.577936) 0%, rgba(21, 13, 22, 0.292221) 28%, rgba(38, 12, 41, 0.409868) 100%);
+}
+
+.jojo .tabs .item {
+  line-height: 40px;
+  font-weight: bold;
+}
+
+.jojo .tabs .item.active {
+  text-decoration: underline;
+  text-shadow: none;
+}
+
+.jojo .items-list {
+  list-style: none;
+  margin: 7px 0;
+  padding: 0;
+  overflow-y: auto;
+}
+
+.jojo .items-list .item-header {
+  font-weight: bold;
+}
+
+.jojo .items-list .item {
+  height: 30px;
+  line-height: 24px;
+  padding: 3px 0;
+  border-bottom: 1px solid #BBB;
+}
+
+.jojo .items-list .item .item-image {
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 24px;
+  flex: 0 0 24px;
+  margin-right: 5px;
+}
+
+.jojo .items-list .item img {
+  display: block;
+}
+
+.jojo .items-list .item .editor-content {
+  height: 100%;
+  min-height: 100px;
+}
+
+.jojo .items-list .item .editor-content .tox.tox-tinymce {
+  height: 100%;
+  min-height: 100px;
+}
+
+.jojo .items-list .item-name {
+  margin: 0;
+}
+
+.jojo .items-list .item-controls {
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 86px;
+  flex: 0 0 86px;
+  text-align: right;
+}

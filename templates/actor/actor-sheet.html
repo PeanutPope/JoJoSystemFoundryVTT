@@ -1,0 +1,1089 @@
+<form class="{{cssClass}} flexcol wholesheet" autocomplete="off">
+
+    {{!-- Sheet Header --}}
+    <header class="sheet-header">
+      <div class="header-left">
+            <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}"/>
+
+            <div class="speed">
+              <div class="movement flexcolumn flex-group-center">
+                <label class="movement-label" for="data.movementdistance">Character Movement</label>
+                <input type="number" name="data.movementdistance" value="{{data.movementdistance}}" data-dtype="Number"/>
+              </div>
+              <div class="movement flexcolumn flex-group-center">
+                <label class="movement-label" for="data.standstats.stats.speed.distance">Stand Speed</label>
+                <input type="number" name="data.standstats.stats.speed.distance" value="{{data.standstats.stats.speed.distance}}" data-dtype="Number"/>
+              </div>
+              <div class="movement flexcolumn flex-group-center">
+                <label class="movement-label" for="data.standstats.range.distance">Stand Range</label>
+                <input type="number" name="data.standstats.stats.range.distance" value="{{data.standstats.stats.range.distance}}" data-dtype="Number"/>
+              </div>
+            </div>
+            
+          <div class="grid-2col" >
+            <label class="rollsclickable charpoints-types label-header" onclick="charRoll()" >Character Roll</label>
+            <label class="rollsclickable charpoints-types label-header" onclick="standRoll()" >Stand Roll</label>
+         </div>
+          </div>
+          <div class="header-right">
+          <div class="header-fields">
+
+            <div class="flexrow flex-group-center">
+
+               <h1 class="charname">
+                 <input name="name" type="text" value="{{actor.name}}" placeholder="Name"/>
+               </h1>
+
+               
+
+            </div>
+
+            {{!-- The grid classes are defined in scss/global/_grid.scss. To use,
+            use both the "grid" and "grid-Ncol" class where "N" can be any number
+            from 1 to 12 and will create that number of columns.  --}}
+            <div class="resources grid grid-3col" style="height:65px">
+              {{!-- "flex-group-center" is also defined in the _grid.scss file
+              and it will add a small amount of padding, a border, and will
+              center all of its child elements content and text. --}}
+              <div class="resource flex-group-center">
+                  <label for="data.health.value" class="resource-label rollable" onclick="healthroll()">Health</label>
+                  <div class="resource-content flexrow flex-center flex-between">
+                    <input type="number" name="data.health.value" class="spinBox" value="{{data.health.value}}" min="0" step="1" max="{{data.health.max}}"/>
+                    <span> / </span>
+                    <input type="number" name="data.health.max" value="{{data.health.max}}"/>
+                  </div>
+              </div>
+              <div class="resource flex-group-center">
+                  <label for="data.plot.value" class="resource-label">Plot</label>
+                  <div class="resource-content flexrow flex-center flex-between">
+                    <input type="text" name="data.plot.value" class="spinBox" value="{{data.plot.value}}" data-dtype="Number"/>
+                    <span> / </span>
+                    <input type="text" name="data.plot.max" value="{{data.plot.max}}" data-dtype="Number"/>
+                  </div>
+              </div>
+              <div class="resource flex-group-center">
+                <label for="data.resolve.value" class="resource-label">Resolve</label>
+                <div class="resource-content flexrow flex-center flex-between">
+                  <input type="text" name="data.resolve.value" class="spinBox" value="{{data.resolve.value}}" data-dtype="Number"/>
+                  <span> / </span>
+                  <input type="text" name="data.resolve.max" value="{{data.resolve.max}}" data-dtype="Number"/>
+                </div>
+            </div>
+          </div>
+        </div>
+      <div class="header-attributes">
+          {{!-- The grid classes are defined in scss/global/_grid.scss. To use,
+          use both the "grid" and "grid-Ncol" class where "N" can be any number
+          from 1 to 12 and will create that number of columns.  --}}
+          <div class="attributes grid grid-3col" style="height:65px">
+            {{#each data.attributes as |attribute key|}}
+              <div class="attribute-stat flexcolumn flex-group-center">
+                <label class="attribute-label rollable spinBox resource-label " for="data.attributes.{{key}}.value" data-roll="1d6+@attributes.{{key}}.value" data-label="{{key}}">{{key}}</label>
+                <input type="text" name="data.attributes.{{key}}.value" value="{{attribute.value}}" data-dtype="Number"/>
+              </div>
+            {{/each}}
+          
+          </div> 
+      <div class="charpoints-types" style="height:180px">
+      <div class="grid grid-4col">
+        <label class="label-header">Character Points</label>
+          <input class="numberbox" type="number" name="data.charpoints.value" min="0" step="1" max="999" value="{{data.charpoints.value}}"/>
+          <br>
+          <br>
+      </div>
+      <div class="repeating_chartypes grid grid-4col">
+            <label class="label-header">Character Types</label>
+            <select  class="selectstats"  name="data.chartype.value1"  data-type="String">
+              {{#select actor.data.chartype.value1}}
+              {{#each actor.data.chartypes as |chartypes key|}}
+              
+              <option  value="{{key}}">{{chartypes.value}}</option> {{/each}} {{/select}}
+              
+              </select>
+              <div class = "ranks">
+                <select  class="selectstats"  name="data.typerank.value1"  data-type="String">
+                  {{#select actor.data.typerank.value1}}
+                  {{#each actor.data.typeranks as |typeranks key|}}
+                  
+                  <option  value="{{key}}">{{typeranks.label}}</option> {{/each}} {{/select}}
+                  
+                  </select>
+              </div>
+              <div>
+                <input type="checkbox" name="data.typenumber1" {{checked actor.data.typenumber1}}>
+                <label class="label">Add</label>
+              </div>
+        </div>
+        <div class="repeating_chartypes grid grid-4col {{#if data.rtypenumber1}}hidefield{{/if}}">
+            <label class="label"></label>
+            <select  class="selectstats"  name="data.chartype.value2"  data-type="String">
+              {{#select actor.data.chartype.value2}}
+              {{#each actor.data.chartypes as |chartypes key|}}
+              
+              <option  value="{{key}}">{{chartypes.value}}</option> {{/each}} {{/select}}
+              
+              </select>
+              <div class = "ranks">
+                <select  class="selectstats"  name="data.typerank.value2"  data-type="String">
+                  {{#select actor.data.typerank.value2}}
+                  {{#each actor.data.typeranks as |typeranks key|}}
+                  
+                  <option  value="{{key}}">{{typeranks.label}}</option> {{/each}} {{/select}}
+                  
+                  </select>
+              </div>
+              <div>
+                  <input type="checkbox" name="data.typenumber2" {{checked actor.data.typenumber2}}>
+                <label class="label">Add</label>
+            </div>
+        </div>
+        <div class="repeating_chartypes grid grid-4col {{#if data.rtypenumber2}}hidefield{{/if}}">
+            <label class="label"></label>
+            <select  class="selectstats"  name="data.chartype.value3"  data-type="String">
+              {{#select actor.data.chartype.value3}}
+              {{#each actor.data.chartypes as |chartypes key|}}
+              
+              <option  value="{{key}}">{{chartypes.value}}</option> {{/each}} {{/select}}
+              
+              </select>
+              <div class = "ranks ">
+                <select  class="selectstats"  name="data.typerank.value3"  data-type="String">
+                  {{#select actor.data.typerank.value3}}
+                  {{#each actor.data.typeranks as |typeranks key|}}
+                  
+                  <option  value="{{key}}">{{typeranks.label}}</option> {{/each}} {{/select}}
+                  
+                  </select>
+              </div>
+        </div>
+        <div class="grid grid-4col">
+          <label class="label-header"><b>Villain</b></label>
+          <input type="checkbox" name="data.isvillain" {{checked actor.data.isvillain}}>
+          
+        <label class="label-header">Stand User</label>
+        <input type="checkbox" name="data.hasstand" {{checked actor.data.hasstand}}>
+        </div>
+      </div>
+    </div>
+    </div>
+    </header>
+
+    {{!-- Sheet Tab Navigation --}}
+    <nav class="sheet-tabs tabs" data-group="primary">
+        <a class="item" data-tab="description">Description</a>
+        <a class="item" data-tab="trait">Traits & Flaws</a>
+        <a class="item" data-tab="items">Items</a>
+        <a class="item" data-tab="features">Features</a>
+        <a class="item {{#if data.nostand}}hidefield{{/if}}" data-tab="stand" onclick="drawStats()">Stand</a>
+        <a class="item {{#if data.notvillain}}hidefield{{/if}}" data-tab="villain">Villain</a>
+    </nav>
+
+    {{!-- Sheet Body --}}
+    <section class="sheet-body">
+
+        {{!-- Biography Tab --}}
+        <div class="tab biography" data-group="primary" data-tab="description">
+            <br>
+            <div class="biography-editor">
+            <span  class="arakisheet-label label" style="margin-left:14px" name="data.biography" >Biography</span>
+            <br>
+            {{editor content=data.biography target="data.biography" button=true owner=owner editable=editable}}
+            </div>
+            <br>
+            <ol  class="arakisheet-list">
+
+                {{#each actor.data.arakisheet as |araki key|}}
+                
+                <li  class="arakisheet grid grid-2col"  data-arakisheete="{{key}}">
+                
+                 <span  class="arakisheet-label label"  name="data.arakisheet.{{key}}.label" ><b>{{label}}</b></span>
+                
+                 <div  class="arakisheet-editbox">
+                   <input  class="arakisheet-textbox"  type="text"  name="data.arakisheet.{{key}}.value"  value="{{araki.value}}"  data-dtype="String"/>
+                 </div>
+                 
+                </li>
+                
+                {{/each}}
+                
+            </ol>
+        </div>
+
+        {{!-- Traits and Flaws Tab --}}
+        <div class="tab trait" data-group="primary" data-tab="trait">
+          <ol class="items-list">
+              <li class="item flexrow item-header">
+                <div class="item-image"></div>
+                <div class="item-name">Name</div>
+                <div class="item-controls">
+                  <a class="item-control item-create" title="Create item" data-type="trait"><i class="fas fa-plus"></i> Add item</a>
+                </div>
+              </li>
+          {{#each actor.trait as |item id|}}
+              <li class="item flexrow" data-item-id="{{item._id}}">
+                  <div class="item-image"><img src="{{item.img}}" title="{{item.name}}" th="2wid4" height="24"/></div>
+                  <h4 class="item-name">{{item.name}}</h4>
+                  Bonus:<input class="numberbox" type="text" name="data.bonus" value="{{data.bonus}}" data-dtype="Number"/>
+                  <div class="item-controls">
+                      <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+                      <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+                  </div>
+              </li>
+          {{/each}}
+          </ol>
+      </div>
+
+        {{!-- Owned Items Tab --}}
+        <div class="tab items" data-group="primary" data-tab="items">
+            <ol class="items-list">
+                <li class="item flexrow item-header">
+                  <div class="item-image"></div>
+                  <div class="item-name">Name</div>
+                  <div class="item-controls">
+                    <a class="item-control item-create" title="Create item" data-type="item"><i class="fas fa-plus"></i> Add item</a>
+                  </div>
+                </li>
+            {{#each actor.gear as |item id|}}
+                <li class="item flexrow" data-item-id="{{item._id}}">
+                    <div class="item-image"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/></div>
+                    <h4 class="item-name">{{item.name}}</h4>
+                    Bonus:<input class="numberbox" type="text" name="data.objectbonus" value="{{data.objectbonus}}" data-dtype="Number"/>
+                    <div class="item-controls">
+                        <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+                        <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+                    </div>
+                </li>
+            {{/each}}
+            </ol>
+        </div>
+
+        {{!-- Owned Features Tab --}}
+        <div class="tab features" data-group="primary" data-tab="features">
+            <ol class="items-list">
+                <li class="item flexrow item-header">
+                  <div class="item-image"></div>
+                  <div class="item-name">Name</div>
+                  <div class="item-controls">
+                    <a class="item-control item-create" title="Create item" data-type="feature"><i class="fas fa-plus"></i> Add item</a>
+                  </div>
+                </li>
+            {{#each actor.features as |item id|}}
+                <li class="item flexrow" data-item-id="{{item._id}}">
+                    <div class="item-image"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/></div>
+                    <h4 class="item-name">{{item.name}}</h4>
+                    <div class="item-controls">
+                        <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+                        <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+                    </div>
+                </li>
+            {{/each}}
+            </ol>
+        </div>
+
+
+        {{!-- Owned Stand Tab --}}
+        
+        <div class="tab stand" data-group="primary" data-tab="stand">
+            <br>
+          <label  class="standstat-label" height="50"> Name: </label>
+          <input  type="text"  name="data.standstats.name" id="data.standstats.name" value="{{data.standstats.name}}"  data-dtype="String"/>
+          <br>
+        <div class="repeating_standtypes grid grid-3col">
+          <label class="standstat-label">Stand Types</label>
+            
+              <select  class="standtypes"  name="data.standstats.standtype.value1"  data-type="String">
+                {{#select actor.data.standstats.standtype.value1}}
+                {{#each actor.data.standstats.standtypes as |standtypes key|}}
+                
+                <option  value="{{key}}">{{standtypes.value}}</option> {{/each}} {{/select}}
+                </select>
+            
+            <div>
+              <input type="checkbox" name="data.standtypenumber1" {{checked actor.data.standtypenumber1}}>
+              <label class="label">Add</label>
+            </div>
+        </div>
+        <div class="repeating_standtypes grid grid-3col {{#if data.rstandtypenumber1}}hidefield{{/if}}">
+            <label class="standstat-label">Stand Types</label>
+              
+                <select  class="standtypes"  name="data.standstats.standtype.value2"  data-type="String">
+                  {{#select actor.data.standstats.standtype.value2}}
+                  {{#each actor.data.standstats.standtypes as |standtypes key|}}
+                  
+                  <option  value="{{key}}">{{standtypes.value}}</option> {{/each}} {{/select}}
+                  </select>
+              
+              <div>
+                <input type="checkbox" name="data.standtypenumber2" {{checked actor.data.standtypenumber2}}>
+                <label class="label">Add</label>
+              </div>
+        </div>
+        <div class="repeating_standtypes grid grid-3col {{#if data.rstandtypenumber2}}hidefield{{/if}}">
+            <label class="standstat-label">Stand Types</label>
+              
+                <select  class="standtypes"  name="data.standstats.standtype.value3"  data-type="String">
+                  {{#select actor.data.standstats.standtype.value3}}
+                  {{#each actor.data.standstats.standtypes as |standtypes key|}}
+                  
+                  <option  value="{{key}}">{{standtypes.value}}</option> {{/each}} {{/select}}
+                  </select>
+             
+              <div>
+                <label class="label"></label>
+              </div>
+        </div>
+
+           <div class="Standstatsbox flexrow">
+            <div class="standstatsbox-left" onload="drawStats()" ;>
+
+            <div class="flexrow standstatsbox-small">
+             <span class="standstat-dice rollable label" data-roll=" @standstats.stats.power.dice" data-label="{{data.standstats.stats.power.dice}}" oninput="drawStats()">Power:</span>
+             <input type="range" name="data.standstats.stats.power.modifier" class="slider" id="slider_power" value="{{data.standstats.stats.power.modifier}}" min="1" max="5" oninput="drawStats()">
+             <input type="text" name="data.standstats.stats.power.dice" class="attribute-dice" value="{{data.standstats.stats.power.dice}}" disabled>
+            </div>
+
+            <div class="flexrow standstatsbox-small">
+             <span class="standstat-dice rollable label" data-roll="@standstats.stats.speed.dice" data-label="{{data.standstats.stats.speed.dice}}" oninput="drawStats()">Speed:</span>
+             <input type="range" name="data.standstats.stats.speed.modifier"class="slider" id="slider_speed" value="{{data.standstats.stats.speed.modifier}}" min="1" max="5" oninput="drawStats()">
+             <input type="text" name="data.standstats.stats.speed.dice" class="attribute-dice" value="{{data.standstats.stats.speed.dice}}" disabled>
+            </div>
+
+            <div class="flexrow standstatsbox-small">
+             <span class="standstat-dice rollable label" data-roll="@standstats.stats.range.dice" data-label="{{data.standstats.stats.range.dice}}" oninput="drawStats()">Range:</span>
+             <input type="range" name="data.standstats.stats.range.modifier"class="slider" id="slider_range" value="{{data.standstats.stats.range.modifier}}" min="1" max="5" oninput="drawStats()">
+             <input type="text" name="data.standstats.stats.range.dice" class="attribute-dice" value="{{data.standstats.stats.range.dice}}" disabled>
+            </div>
+            
+            <div class="flexrow standstatsbox-small">
+             <span class="standstat-dice rollable label" data-roll="@standstats.stats.durability.dice" data-label="{{data.standstats.stats.durability.dice}}" oninput="drawStats()">Durability:</span>
+             <input type="range" name="data.standstats.stats.durability.modifier"class="slider" id="slider_durability" value="{{data.standstats.stats.durability.modifier}}" min="1" max="5" oninput="drawStats()">
+             <input type="text" name="data.standstats.stats.durability.dice" class="attribute-dice" value="{{data.standstats.stats.durability.dice}}" disabled>
+            </div>
+
+            <div class="flexrow standstatsbox-small">
+             <span class="standstat-dice rollable label" data-roll="@standstats.stats.precision.dice" data-label="{{data.standstats.stats.precision.dice}}" oninput="drawStats()">Precision:</span>
+             <input type="range" name="data.standstats.stats.precision.modifier"class="slider" id="slider_precision" value="{{data.standstats.stats.precision.modifier}}" min="1" max="5" oninput="drawStats()">
+             <input type="text" name="data.standstats.stats.precision.dice" class="attribute-dice" value="{{data.standstats.stats.precision.dice}}" disabled>
+            </div>
+
+            <div class="flexrow standstatsbox-small">
+             <span class="standstat-dice rollable label" data-roll="@standstats.stats.learning.dice" data-label="{{data.standstats.stats.learning.dice}}" oninput="drawStats()">Learning:</span>
+             <input type="range" name="data.standstats.stats.learning.modifier"class="slider" id="slider_potential" value="{{data.standstats.stats.learning.modifier}}" min="1" max="5" oninput="drawStats()">
+             <input type="text" name="data.standstats.stats.learning.dice" class="attribute-dice" value="{{data.standstats.stats.learning.dice}}" disabled>
+            </div>
+
+          </div>
+
+           <p class="Statscanvas" style="float:right;">
+          <canvas id="myCanvas" width="300" height="300" onload="drawStats()"></canvas>
+          <br>
+          <input type="color" id="colour_radar" oninput="drawStats()"width="0" height="0" style="float:right;" value="#ff0000">
+          </p>
+        </div> 
+        
+        <div class="standtext">
+          <label  class="standstat-label"> Ability: </label>
+              {{editor content=data.standstats.ability target="data.standstats.ability" button=true owner=owner editable=editable}}
+              <br>
+          </div>
+  
+          <div class="standtext">
+          <label  class="standstat-label"> Weakness: </label>
+          {{editor content=data.standstats.weakness target="data.standstats.weakness" button=true owner=owner editable=editable}}
+          <br>
+          </div>
+  
+          <div class="standtext">
+          <label  class="standstat-label"> Description: </label>
+          {{editor content=data.standstats.description target="data.standstats.description" button=true owner=owner editable=editable}}
+          <br>
+          
+          <input type="checkbox" id="transparent_colour" onclick="drawStats()"width="0" height="0" style="opacity:0" disabled><br>
+          <input type="checkbox" id="part5_coin" onclick="drawStats()"width="0" height="0" style="opacity:0" disabled>
+          <input type="checkbox" id="s_power" onclick="drawStats()"width="0" height="0"style="opacity:0" disabled> 
+          <input type="checkbox" id="s_speed" onclick="drawStats()"width="0" height="0"style="opacity:0" disabled> 
+          <input type="checkbox" id="s_range" onclick="drawStats()"width="0" height="0"style="opacity:0" disabled> 
+          <input type="checkbox" id="s_durability" onclick="drawStats()"width="0" height="0"style="opacity:0" disabled> 
+          <input type="checkbox" id="s_durability" onclick="drawStats()"width="0" height="0"style="opacity:0" disabled> 
+          <input type="checkbox" id="s_durability" onclick="drawStats()"width="0" height="0"style="opacity:0" disabled> 
+          <input type="checkbox" id="s_precision" onclick="drawStats()"width="0" height="0"style="opacity:0" disabled> 
+          <input type="checkbox" id="s_potential" onclick="drawStats()"width="0" height="0"style="opacity:0" disabled>
+          <img id="stats" src="http://i.imgur.com/JQ9Q67u.png" alt="Stand Stats" width="0" height="0" style="opacity:0">
+          <img id="stats_noring" src="https://i.imgur.com/euJ7c5r.png" alt="Stand Stats" width="0" height="0" style="opacity:0">
+          <img id="stats_background" src="https://cdn.discordapp.com/attachments/779096091009482752/789573980091580476/circlewhite.png" alt="Stand Stats" width="0" height="0" style="opacity:0">
+          </div>
+    </div>
+
+    
+    {{!-- Villain Tab --}}
+    <div class="tab villain" data-group="primary" data-tab="villain">
+      <ol class="items-list">
+          <li class="item flexrow item-header">
+            <div class="item-image"></div>
+            <div class="item-name">Name</div>
+            <div class="item-controls">
+              <a class="item-control item-create" title="Create item" data-type="villainousaction"><i class="fas fa-plus"></i> Add item</a>
+            </div>
+          </li>
+      {{#each actor.villainousaction as |item id|}}
+          <li class="item flexrow" data-item-id="{{item._id}}">
+              <div class="item-image"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/></div>
+              <h4 class="item-name">New Villainous Action</h4>
+              Trigger:<input class="trigger" type="text" name="data.trigger" value="{{data.trigger}}" data-dtype="String"/>
+              <div class="item-controls">
+                  <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+                  <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+              </div>
+          </li>
+      {{/each}}
+      </ol>
+  </div>
+
+
+<script>
+
+function SpinBox(a,b){
+    "string"==typeof a&&(a=document.getElementById(a));
+    this.options=b?b:{};
+    "className"in this.options||(this.options.className="spinBox");
+    "step"in this.options||(this.options.step=1);
+    "decimals"in this.options||(this.options.decimals=0);
+    var c=a.getElementsByTagName("input");
+    0==c.length?(this.input=document.createElement("input"),
+    this.setValue("value"in this.options?this.options.value:0),
+    a.appendChild(this.input)):(this.input=c[0],
+    this.setValue(this.options.value?this.options.value:this.input.value));
+    c=document.createElement("span");
+    c.appendChild(document.createElement("span"));
+    a.appendChild(c);var d=document.createElement("span");
+    d.appendChild(document.createElement("span"));
+    a.appendChild(d);a.className+=" "+this.options.className;
+    c.className=this.options.className+"Up";
+    d.className=this.options.className+"Down";
+    this.addEventListener(this.input,"mousewheel",
+    this.handleMouseWheel,[],!0);
+    this.addEventListener(this.input,"DOMMouseScroll",this.handleMouseWheel,[],!0);
+    this.addEventListener(this.input,"keydown",this.handleKeyDown,[],!0);
+    this.addEventListener(this.input,"keypress",this.handleKeyPress,[],!0);
+    this.addEventListener(this.input,"keyup",this.stop);
+    this.addEventListener(c,"mousedown",this.start,[!0]);
+    this.addEventListener(c,"mouseup",this.stop);
+    this.addEventListener(c,"mouseout",this.stop);
+    this.addEventListener(d,"mousedown",this.start,[!1]);
+    this.addEventListener(d,"mouseup",this.stop);
+    this.addEventListener(d,"mouseout",this.stop)}
+
+
+    SpinBox.prototype.getValue=function(){
+        return parseFloat(this.input.value)};
+        SpinBox.prototype.setValue=function(a){
+            "minimum"in this.options&&(a=Math.max(this.options.minimum,a));
+            "maximum"in this.options&&(a=Math.min(this.options.maximum,a));
+            var b=0>a?"-":"";a=Math.abs(a);
+            var c=Math.pow(10,this.options.decimals);
+            a=Math.round(a*c);
+            for(var d=""+a%c;d.length<this.options.decimals;)d="0"+d;
+            this.input.value=b+(a-a%c)/c+(0<this.options.decimals?"."+d:"");
+            if("dispatchEvent"in this.input){
+                try{var e=new Event("change",{bubbles:!0,cancelable:!0})}
+                catch(f){e=document.createEvent("Event"),e.initEvent("change",!0,!0)}this.input.dispatchEvent(e)}};
+                SpinBox.prototype.addEventListener=function(a,b,c,d,e){
+                    function f(a){a||(a=window.event);
+                        c.apply(g,[a].concat(d));e||(a.preventDefault?a.preventDefault():a.returnValue=!1)}
+                        var g=this;a.addEventListener?a.addEventListener(b,f,!1):a.attachEvent("on"+b,f)};
+                        SpinBox.prototype.handleMouseWheel=function(a){
+                            document.activeElement==this.input&&(a.wheelDelta?this.start(a,1<a.wheelDelta):a.detail&&this.start(a,1>a.detail),this.stop(),a.preventDefault?a.preventDefault():a.returnValue=!1)};
+                            SpinBox.prototype.handleKeyDown=function(a){38==a.keyCode&&this.start(a,!0);40==a.keyCode&&this.start(a,!1)};
+                            SpinBox.prototype.handleKeyPress=function(a){var b="charCode"in a?a.charCode:a.keyCode;0==b||a.altKey||a.ctrlKey||a.metaKey||45==b&&(!("minimum"in this.options)||0>this.options.minimum)||46==b&&0<this.options.decimals||48<=b&&57>=b||(a.preventDefault?a.preventDefault():a.returnValue=!1)};
+                            SpinBox.prototype.start=function(a,b){this.input.disabled||"timeout"in this||(this.updateStep=b?this.options.step:-this.options.step,this.timeoutDelay=500,this.update())};
+                            SpinBox.prototype.stop=function(){"timeout"in this&&(window.clearTimeout(this.timeout),delete this.timeout)};
+                            SpinBox.prototype.update=function(){var a=parseFloat(this.input.value);isNaN(a)&&(a=0);this.setValue(a+this.updateStep);this.timeoutDelay=Math.max(20,Math.floor(.9*this.timeoutDelay));var b=this;
+                            this.timeout=window.setTimeout(function(){b.update()},this.timeoutDelay)};
+
+                            
+    
+    var img=document.getElementById("stats"); 
+    var img2=document.getElementById("coin");
+    var img3=document.getElementById("stats_noring");  
+    var img4=document.getElementById("stats_background");    
+
+    var powerSlider = document.getElementById("slider_power");
+    var power = powerSlider.value;
+        
+    var speedSlider = document.getElementById("slider_speed");
+    var speed = speedSlider.value;
+        
+    var rangeSlider = document.getElementById("slider_range");
+    var range = rangeSlider.value;
+        
+    var durabilitySlider = document.getElementById("slider_durability");
+    var durability = durabilitySlider.value;
+            
+    var precisionSlider = document.getElementById("slider_precision");
+    var precision = precisionSlider.value;
+        
+    var potentialSlider = document.getElementById("slider_potential");
+    var potential = potentialSlider.value;
+    
+    var healthfunction = "@attributes.brawns.value d6 +@standstats.stats.durability.dice" 
+    var featureundeadvitalitycheck = true;
+    var featureheartofironcheck = true;
+    var featuremindofsteelcheck = true;
+
+
+    var e = "1d6";
+        var d = "2d6k1";
+        var c = "2d6";
+        var b = "3d6k2";
+        var a = "3d6";
+    
+    /*		  			S			A			B		C		D			E		NONE
+        Power: 		149,70 | 149,82 | 149,97 | 149,110 | 149,124 | 149,138 | 149,149
+        Speed:		220,111| 209,117| 197,124| 186,131 | 173,138 | 161,145 | 149,149
+        Range:		220,191| 209,187| 197,179| 186,172 | 173,166 | 161,159 | 149,149
+        Durability:	149,232 | 149,220 | 149,192 | 149,179 | 149,138 | 149,166 | 149,149
+        Precision:	 79,191 |  89,187 | 100,179 | 114,172 | 126,166 | 137,159 | 149,149
+        Potential:	 79,111 |  89,117 | 100,124 | 114,131 | 126,138 | 137,145 | 149,149
+    */
+    
+    var PowerX = [149,149,149,149,149,149,149];
+    var PowerY = [149,138,124,110,95,82,70];
+    
+    var SpeedX = [149,161,173,186,197,209,220];
+    var SpeedY = [149,145,138,131,124,117,111];
+    
+    var RangeX = [149,161,173,186,197,209,220];
+    var RangeY = [149,159,166,172,179,187,191];
+    
+    var DurabilityX = [149,149,149,149,149,149,149];
+    var DurabilityY = [149,166,179,192,207,220,232];
+    
+    var PrecisionX = [149,137,126,114,100,89,79];
+    var PrecisionY = [149,159,166,172,179,187,191];
+    
+    var PotentialX = [149,137,126,114,100,89,79];
+    var PotentialY = [149,145,138,131,124,117,111];
+    
+    var ranks = ['NONE', 'E', 'D', 'C', 'B', 'A', '∞'];
+    
+    var PowerTextPos=[140,60];
+    var SpeedTextPos=[224,105];
+    var RangeTextPos=[224,210];
+    var DurabilityTextPos=[140,255];
+    var PrecisionTextPos=[57,210];
+    var PotentialTextPos=[57,105];
+    
+    var NONE_MODIFIERS=[-5,-8,-10,-10,-10,-10];
+    var modifier=0;
+
+    
+    window.onload = function() {
+      var c=document.getElementById("myCanvas");
+      var ctx=c.getContext("2d");
+      var canvas = document.getElementById('myCanvas');
+      var context = canvas.getContext('2d');
+    
+    /*
+      context.beginPath();
+      context.rect(0, 0, 200, 100);
+      context.fillStyle = 'yellow';
+      context.fill();
+      context.lineWidth = 1;
+      context.strokeStyle = 'black';
+      context.stroke();
+    */
+    drawStats();
+    };
+    drawStats();
+
+    async function healthroll(){
+        console.log("Healthroll function initialized")
+        //Is a token selected? If not, error
+        console.log("Tokens: ", canvas.tokens.controlled);
+      if(canvas.tokens.controlled.length == 0 || canvas.tokens.controlled.length > 1){
+         ui.notifications.error("Please select a single token");
+        return;
+    }
+    let actor = canvas.tokens.controlled[0].actor
+    console.log("Actor: ", actor);
+    //roll for hp definition
+    let health_roll = new Roll(`${actor.data.data.attributes.brawns.value}d6 + ${actor.data.data.standstats.stats.durability.dice}`)
+      .roll()
+      
+    let ruleoffour = new Roll(`${actor.data.data.attributes.brawns.value}*4`)
+    .roll()
+
+    let mindofsteel = new Roll(`${actor.data.data.attributes.brawns.value}d6 + ${actor.data.data.standstats.stats.durability.dice} + ${actor.data.data.attributes.brains.value}d6`)
+    .roll()
+
+    let heartofiron = new Roll(`${actor.data.data.attributes.brawns.value}d6 + ${actor.data.data.standstats.stats.durability.dice} + ${actor.data.data.attributes.bravery.value}d6`)
+    .roll()
+
+    let undeadvitality = new Roll(`${actor.data.data.attributes.brawns.value}*6`)
+    .roll()
+
+    //Does the token have Mind of Steel (A)? featuremindofsteelcheck is false if the feature is there
+    console.log("Actor: ", actor);
+    let featureheartofiron = actor.items.find(item => item.data.name == "Heart of Iron (B)")
+    let featuremindofsteel = actor.items.find(item => item.data.name == "Mind of Steel (A)")
+    let featureundeadvitality = actor.items.find(item => item.data.name == "Undead Vitality")
+    let ruleoffourcheck = true
+
+    if(featuremindofsteel == null || featuremindofsteel == undefined){
+      featuremindofsteelcheck = true;
+      console.log("No Mind of steel feature on character");
+    }
+    else{
+      featuremindofsteelcheck = false;
+     
+      console.log("Mind of steel feature on character");
+    }
+    
+    //Does the token have Heart of Iron (B)? featureheartofironcheck is false if the feature is there
+    if(featureheartofiron == null || featureheartofiron == undefined){
+      featureheartofironcheck = true;
+      console.log("No Heart of Iron feature on character");
+    }
+    else{
+      featureheartofironcheck = false;
+      
+      console.log("Heart of Iron feature on character");
+    }
+    
+    //Does the token have Undead Vitality? featureundeadvitalitycheck is false if the feature is there
+    if(featureundeadvitality == null || featureundeadvitality == undefined){
+      featureundeadvitalitycheck = true;
+      console.log("No Undead Vitality feature on character");
+    }
+    else{
+      featureundeadvitalitycheck = false;
+     
+      console.log("Undead Vitality feature on character");
+ }
+  
+
+
+    //set token hp
+    let newHp = 1;
+    if(featureundeadvitalitycheck == false){
+       newHp = undeadvitality.total; 
+       console.log("undeadifinitialised");
+    }
+    else if(featureheartofironcheck == false){
+       newHp = heartofiron.total; 
+       console.log("heartifinitialised");
+    }
+    else if(featuremindofsteelcheck == false){
+       newHp = mindofsteel.total; 
+       console.log("mindifinitialised");
+    }
+    else if(ruleoffourcheck == false){
+       newHp = ruleoffour.total; 
+       console.log("regularhealth");
+    }
+    else {
+       newHp = health_roll.total;
+    }
+    if (newHp <= ruleoffour.total){
+      console.log("The Rule of Four applies")
+    }
+    console.log("new HP",newHp);
+    console.log("healthroll",health_roll.total);
+    console.log("undeadvitality",undeadvitality.total);
+    console.log("heartofiron",heartofiron.total);
+    console.log("mindofsteel",mindofsteel.total);
+    console.log("rule of four",ruleoffour.total);
+    
+    //update the actors hp
+    await actor.update({"data.health.max": newHp});
+    actor.update({"data.health.value": newHp});
+    
+    ui.notifications.info(`${actor.data.name} rolled for max HP`)
+    }
+
+
+    
+
+    
+    function redrawGraph(ctx,canvas) {
+        ctx.globalAlpha = 1.0
+        if (document.getElementById("part5_coin").checked)
+        {
+            ctx.drawImage(img3,0,0, canvas.width, canvas.height);
+        }
+        else
+        {
+            ctx.drawImage(img,0,0, canvas.width, canvas.height);
+        }
+    }
+    
+    function drawCoin(ctx,canvas) {
+        if (document.getElementById("part5_coin").checked)
+        {	 
+            ctx.globalAlpha = 1.0
+            ctx.drawImage(img2,0,3, canvas.width, canvas.height);
+            
+        }
+    
+    }
+    
+    function drawPolygon(ctx,power,speed,range,durability,precision,potential) {
+    
+        if (document.getElementById("transparent_colour").checked)
+        {
+            ctx.globalAlpha = 0.5
+        }
+    
+        ctx.fillStyle = document.getElementById("colour_radar").value;
+        ctx.beginPath();
+        ctx.moveTo(PowerX[power],PowerY[power]);
+        ctx.lineTo(SpeedX[speed],SpeedY[speed]);
+        ctx.lineTo(RangeX[range],RangeY[range]);
+        ctx.lineTo(DurabilityX[durability],DurabilityY[durability]);
+        ctx.lineTo(PrecisionX[precision],PrecisionY[precision]);
+        ctx.lineTo(PotentialX[potential],PotentialY[potential]);
+        ctx.closePath();
+        ctx.fill();
+    }
+    
+    function getSText()
+    {
+        if (document.getElementById("sToQuestionmark").checked)
+        {
+            return '?';
+        }
+        else
+        {
+            return 'S';
+        }
+    }
+    
+    function writeText(ctx,power,speed,range,durability,precision,potential) {
+        ctx.globalAlpha = 1.0
+        ctx.font="bold 24px Arial";
+        ctx.fillStyle = '#000';
+        
+        var powerText=ranks[power];
+        var speedText=ranks[speed];
+        var rangeText=ranks[range];
+        var durabilityText=ranks[durability];
+        var precisionText=ranks[precision];
+        var potentialText=ranks[potential];
+        
+        if (document.getElementById("s_power").checked)
+        {
+            powerText=getSText();
+        }
+        if (document.getElementById("s_speed").checked)
+        {
+            speedText=getSText();
+        }
+        if (document.getElementById("s_range").checked)
+        {
+            rangeText=getSText();
+        }
+        if (document.getElementById("s_durability").checked)
+        {
+            durabilityText=getSText();
+        }
+        if (document.getElementById("s_precision").checked)
+        {
+            precisionText=getSText();
+        }
+        if (document.getElementById("s_potential").checked)
+        {
+            potentialText=getSText();
+        }
+        
+        regenerateModifier(( power==0 && !document.getElementById("s_power").checked ),0);
+        ctx.fillText(powerText,PowerTextPos[0]+modifier,PowerTextPos[1]);
+        
+        regenerateModifier(( speed==0 && !document.getElementById("s_speed").checked ),1);
+        ctx.fillText(speedText,SpeedTextPos[0]+modifier,SpeedTextPos[1]);
+        
+        regenerateModifier(( range==0 && !document.getElementById("s_range").checked ),2);
+        ctx.fillText(rangeText,RangeTextPos[0]+modifier,RangeTextPos[1]);
+        
+        regenerateModifier(( durability==0 && !document.getElementById("s_durability").checked ),3);
+        ctx.fillText(durabilityText,DurabilityTextPos[0]+modifier,DurabilityTextPos[1]);
+        
+        regenerateModifier(( precision==0 && !document.getElementById("s_precision").checked ),4);
+        ctx.fillText(precisionText,PrecisionTextPos[0]+modifier,PrecisionTextPos[1]);
+        
+        regenerateModifier(( potential==0 && !document.getElementById("s_potential").checked ),5);
+        ctx.fillText(potentialText,PotentialTextPos[0]+modifier,PotentialTextPos[1]);
+    }
+    
+
+
+    function drawStats() {
+        var canvas = document.getElementById('myCanvas');
+        var ctx = canvas.getContext('2d');
+        
+        // Clear the canvas
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        
+        // Get all the values
+        var powerSlider = document.getElementById("slider_power");
+        var power = powerSlider.value;
+        
+        var speedSlider = document.getElementById("slider_speed");
+        var speed = speedSlider.value;
+        
+        var rangeSlider = document.getElementById("slider_range");
+        var range = rangeSlider.value;
+        
+        var durabilitySlider = document.getElementById("slider_durability");
+        var durability = durabilitySlider.value;
+            
+        var precisionSlider = document.getElementById("slider_precision");
+        var precision = precisionSlider.value;
+        
+        var potentialSlider = document.getElementById("slider_potential");
+        var potential = potentialSlider.value;
+        
+
+        if (document.getElementById("transparent_colour").checked)
+        {
+          ctx.drawImage(img4,0,0, canvas.width, canvas.height);
+            drawCoin(ctx,canvas);
+            redrawGraph(ctx,canvas);
+            drawPolygon(ctx,power,speed,range,durability,precision,potential);
+            writeText(ctx,power,speed,range,durability,precision,potential);
+        }
+        else
+        {
+          ctx.drawImage(img4,0,0, canvas.width, canvas.height);
+            drawCoin(ctx,canvas);
+            drawPolygon(ctx,power,speed,range,durability,precision,potential);
+            redrawGraph(ctx,canvas);
+            writeText(ctx,power,speed,range,durability,precision,potential);
+        }
+    }
+    
+    function randomize(randomizeFully)
+    {
+        var min = 0
+        var max = 7
+        
+        if (randomizeFully==0)
+        {
+            min++;
+            max-=2;
+        }
+        
+        document.getElementById("s_power").checked = false;
+        document.getElementById("s_speed").checked = false;
+        document.getElementById("s_range").checked = false;
+        document.getElementById("s_durability").checked = false;
+        document.getElementById("s_precision").checked = false;
+        document.getElementById("s_potential").checked = false;
+        
+        if (randomizeFully==1)
+        {
+            if (Math.floor(Math.random() * 2) == 0)
+            {
+                document.getElementById("s_power").checked = true;
+            }
+            if (Math.floor(Math.random() * 2) == 0)
+            {
+                document.getElementById("s_speed").checked = true;
+            }
+            if (Math.floor(Math.random() * 2) == 0)
+            {
+                document.getElementById("s_range").checked = true;
+            }
+            if (Math.floor(Math.random() * 2) == 0)
+            {
+                document.getElementById("s_durability").checked = true;
+            }
+            if (Math.floor(Math.random() * 2) == 0)
+            {
+                document.getElementById("s_precision").checked = true;
+            }
+            if (Math.floor(Math.random() * 2) == 0)
+            {
+                document.getElementById("s_potential").checked = true;
+            }
+        }
+        
+        var powerSlider = document.getElementById("slider_power");
+        powerSlider.value = Math.floor((Math.random() * max) + min);
+        
+        var speedSlider = document.getElementById("slider_speed");
+        speedSlider.value = Math.floor((Math.random() * max) + min);
+        
+        var rangeSlider = document.getElementById("slider_range");
+        rangeSlider.value = Math.floor((Math.random() * max) + min);
+        
+        var durabilitySlider = document.getElementById("slider_durability");
+        durabilitySlider.value = Math.floor((Math.random() * max) + min);
+            
+        var precisionSlider = document.getElementById("slider_precision");
+        precisionSlider.value = Math.floor((Math.random() * max) + min);
+        
+        var potentialSlider = document.getElementById("slider_potential");
+        potentialSlider.value = Math.floor((Math.random() * max) + min);
+        
+        drawStats();
+    }
+    
+    function regenerateModifier(smallText,index) {
+        var canvas = document.getElementById('myCanvas');
+        var ctx = canvas.getContext('2d');
+        modifier=0;
+        ctx.font="bold 24px Arial";
+        if (smallText)
+        {
+            ctx.font="bold 12px Arial";
+            modifier=NONE_MODIFIERS[index];
+        }
+    }
+
+var dice = 1;
+var trait = 0;
+var flaw = 0;
+var object = 0;
+var mod =0;
+
+var pod = "{{data.standstats.stats.power.dice}}";
+var sd = "{{data.standstats.stats.speed.dice}}";
+var rd = "{{data.standstats.stats.range.dice}}";
+var dd = "{{data.standstats.stats.durability.dice}}";
+var prd = "{{data.standstats.stats.precision.dice}}";
+var ld = "{{data.standstats.stats.learning.dice}}";
+
+var pom = "{{data.standstats.stats.power.modifier}}";
+var sm = "{{data.standstats.stats.speed.modifier}}";
+var rm = "{{data.standstats.stats.range.modifier}}";
+var dm = "{{data.standstats.stats.durability.modifier}}";
+var prm = "{{data.standstats.stats.precision.modifier}}";
+var lm = "{{data.standstats.stats.learning.modifier}}";
+
+function standRoll() {
+    new Roll(`${dice} + ${trait} + ${flaw} + ${object} + ${mod}`).roll();
+//Dialog options dont refer to the values
+let dialogOptions = `
+                    <option value = ${pod}> Power </option> 
+                    <option value = ${sd}> Speed </option> 
+                    <option value = ${rd}> Range </option>
+                    <option value = ${dd}> Durability </option>
+                    <option value = ${prd}> Precision </option>  
+                    <option value = ${ld}> Learning </option>  
+                    `
+
+let dialogOptionsMod = `
+                    <option value = 0> None </option>
+                    <option value = ${pom}> Power </option>
+                    <option value = ${sm}> Speed </option> 
+                    <option value = ${rm}> Range </option>
+                    <option value = ${dm}> Durability </option>
+                    <option value = ${prm}> Precision </option>  
+                    <option value = ${lm}> Learning </option>  
+                    `
+
+
+
+let dialogContent = `
+                    <div style="display:flex;">
+                    <div class="grid-2col label-header" style="flex:1;">
+                        <label class="label-header">Stat: </label><select name="dice">${dialogOptions}</select>
+                        <label class="label-header">Trait: </label><input name="trait" style="width:40px"/>
+                        <label class="label-header">Flaw: </label><input name="flaw" style="width:40px"/>
+                        <label class="label-header">Object Bonus: </label><input name="object" style="width:40px"/>
+                        <label class="label-header">Second Stat: </label><select name="mod">${dialogOptionsMod}</select>
+</span></div>
+                    </div>     `
+new Dialog ({
+    title: "Stand Roll",
+    content: dialogContent,
+    buttons: {
+        confirm_button: {
+            label: "confirm",
+            callback: (html) => {
+                let dice = html.find("[name=dice]")[0].value;
+                let trait = html.find("[name=trait]")[0].value;
+                let flaw = html.find("[name=flaw]")[0].value;
+                let object = html.find("[name=object]")[0].value;
+                let mod = html.find("[name=mod]")[0].value;
+                diceRoll(dice,trait,flaw,object,mod);
+            }
+        },
+    },
+},
+{
+    width: 75,
+    
+}).render(true)
+    }
+
+    var brawnsdice = "1d6+" + "{{data.attributes.brawns.value}}";
+    var brainsdice = "1d6+" + "{{data.attributes.brains.value}}";
+    var braverydice = "1d6+" + "{{data.attributes.bravery.value}}";
+
+function charRoll() {
+    new Roll(`${dice} + ${trait} + ${flaw} + ${object} + ${mod}`).roll();
+//Dialog options dont refer to the values
+let dialogOptions = `
+                    <option value = ${brawnsdice}> Brawns </option> 
+                    <option value = ${brainsdice}> Brains </option> 
+                    <option value = ${braverydice}> Bravery </option> 
+                    `
+
+let dialogOptionsMod = `
+                    <option value = 0> None </option>
+                    <option value = ${pom}> Power </option>
+                    <option value = ${sm}> Speed </option> 
+                    <option value = ${rm}> Range </option>
+                    <option value = ${dm}> Durability </option>
+                    <option value = ${prm}> Precision </option>  
+                    <option value = ${lm}> Learning </option>  
+                    `
+
+
+
+let dialogContent = `
+                    <div style="display:flex">
+                    <div class="grid-2col label-header"style="flex:1">
+                        Stat: <select name="dice">${dialogOptions}</select>
+                        Trait: <input name="trait" style="width:40px"/>
+                        Flaw: <input name="flaw" style="width:40px"/>
+                        Object Bonus: <input name="object" style="width:40px"/>
+                        Second Stat: <select name="mod">${dialogOptionsMod}</select>
+</span></div>
+                    </div>  `
+new Dialog ({
+    title: "Character Roll",
+    content: dialogContent,
+    buttons: {
+        confirm_button: {
+            label: "confirm",
+            callback: (html) => {
+                let dice = html.find("[name=dice]")[0].value;
+                let trait = html.find("[name=trait]")[0].value;
+                let flaw = html.find("[name=flaw]")[0].value;
+                let object = html.find("[name=object]")[0].value;
+                let mod = html.find("[name=mod]")[0].value;
+                diceRoll(dice,trait,flaw,object,mod);
+            }
+        },
+    },
+},
+{
+    width: 75,
+}).render(true)
+    }
+
+    function diceRoll(dice, trait,flaw,object,mod) {
+    console.log("dice",dice);
+    console.log("trait",trait);
+    console.log("flaw",flaw);
+    console.log("object",object);
+    console.log("mod",mod);
+    new Roll(`${dice} + ${trait} + ${flaw} + ${object} + ${mod}`).toMessage();
+    }
+   
+    </script>
+    </section>
+</form>
+

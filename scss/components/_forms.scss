@@ -1,0 +1,246 @@
+.wholesheet input{
+  color: #ffffff;
+  background: rgb(48,48,48);
+}
+.wholesheet select{
+  color: #ffffff;
+  background: rgb(48,48,48);
+}
+.item-form {
+  font-family: $font-primary;
+}
+
+.sheet-header {
+  flex: 0 0 auto;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin-bottom: 10px;
+  
+  border: 1px solid rgb(158, 158, 158);
+
+  .header-left{
+    flex: 0 0 150px;
+    margin-right: 10px;
+  
+  .profile-img {
+    width: 145px;
+    height: 145px;
+    border: 1px solid rgb(158, 158, 158);
+    margin: 5px;
+  }
+  .movement{
+    height: 65px;
+  .movement-label{
+    width: 150px;
+    font-weight: bold;
+  }
+  .speed{
+    width: 140px;
+  }
+}
+}
+  .feature-profile-img {
+    flex: 0 0 30px;
+    height: 30px;
+    margin-right: 10px;
+  }
+  .feature-dice {
+    flex: 0 0 30px;
+    height: 30px;
+    margin-left: 10px;
+  }
+
+  h1.feature-charname {
+    height: 30px;
+    width: 350px;
+    padding: 0px;
+    margin: 1px 0;
+    border-bottom: 0;
+    input {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      
+  color:white;
+    }
+    .header-right{
+      width: 250px;
+      .header-fields{
+        margin-bottom: 10px;
+      }
+}
+
+  
+  .numberbox{
+    width:26px;
+  }
+  .attribute-stat{
+    align-items: center;
+    text-align: center;
+    height: 70px;
+    .attribute-label{
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+}
+  }
+
+}
+
+.sheet-tabs {
+  flex: 0;
+}
+
+.sheet-body,
+.sheet-body .tab,
+.sheet-body .tab .editor {
+  height: 100%;
+}
+.sheet-body{
+  height: 100%;
+  border: 1px solid rgb(177, 177, 177);
+}
+.tox {
+  .tox-editor-container {
+    background: $c-white;
+  }
+
+  .tox-edit-area {
+    padding: 0 8px;
+    height: 100%;
+  }
+}
+.jojo.sheet.actor {
+  form {
+   display: flex;
+   flex-direction: column;
+  }
+  .tab biography {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    .editor {
+      height: 100%;
+      min-height: 60px;
+    }
+    .biography-editor{
+      height: 100%;
+      min-height: 60px;
+    }
+    .arakisheet-list{
+      .arakisheet{
+        
+    justify-content: space-between;
+      .arakisheet-label{
+        font-weight: bold;
+      }
+      .arakisheet-editbox{
+        .arakisheet-textbox{
+          li {background-color: violet;} 
+          li:nth-child(odd) { background-color:purple; }
+        }
+      }
+    }
+  }
+  }
+}
+
+.standstat-label{
+  font-weight: bold;
+  text-align: center;
+  margin: 5px;
+}
+.standtext{
+  margin-bottom: 5px;
+}
+.standstatsbox-left{
+ float:left;
+ margin-right:5px;
+ margin-top: 50px;
+ flex: 0 0 265px;
+ height: 300px;
+ 
+
+.standstat-dice{
+  margin-right: 5px;
+  text-align: center;
+}
+.attribute-dice{
+  text-align: center;
+  border: 1px solid rgb(177, 177, 177);
+}
+.slider{
+  flex: 0 0 100px;
+  margin-right: 10px;
+  border: 1px solid rgb(177, 177, 177);
+}
+.standstatsbox-small{
+  height: 40px;
+}
+}
+  .arakisheet-textbox{
+    li {background-color: violet;} 
+    li:nth-child(odd) { background-color:purple; }
+  }
+
+.hidefield{
+  display: none;
+ }
+ .editor-content {
+  height: 100%;
+  min-height: 100px;
+  margin-left:14px;
+  margin-right:5px;
+}
+.label{
+  font-weight: bold;
+  
+}
+.label-header{
+  font-weight: bold;
+  text-align: center;
+
+}
+.charpoints-types{
+  padding: 5px;
+  border: 1px solid rgb(153, 153, 153);
+}
+
+.window-content{
+  color: rgb(209, 209, 209);
+  background: rgb(20,20,20);
+  background: linear-gradient(90deg, rgba(20,20,20,0.8748543362657564) 12%, rgba(37,31,51,0.8860588180584734) 100%),url('https://cdn.discordapp.com/attachments/779096091009482752/791815520411975731/backgroundjojo.png');
+.input{
+  color: #c1c1c1;
+}
+}
+::selection {
+  color: rgb(253, 253, 253);
+  background: rgba(66, 32, 61, 0.767);
+}
+.name-villain{
+  .charname {
+    
+ flex: 0 0 300px;
+    padding: 0px;
+    margin: 5px 0;
+    border-bottom: 0;
+    .input {
+      height: 100%;
+      margin: 0;
+      flex-basis: 300px;
+      min-width: 300px;
+    }
+  }
+}
+.rollsclickable{
+  &:hover,
+  &:focus {
+    color: rgb(255, 255, 255);
+    text-shadow: 0 0 10px rgb(255, 0, 119);
+    cursor: pointer;
+  }
+}

@@ -1,0 +1,537 @@
+{
+  "Actor": {
+    "types": ["character"],
+    "templates": {
+      "base": {
+        "health": {
+          "value": 10,
+          "min": 0,
+          "max": 10
+        },
+        "plot": {
+          "value": 1,
+          "min": 0,
+          "max": 1
+        },
+        "resolve": {
+          "value": 1,
+          "min": 0,
+          "max": 1
+        }
+      }
+    },
+    "character": {
+      "templates": ["base"],
+      "biography": "Biography here",
+      "movementdistance":30,
+      "arakisheet":{
+        "nickname":{
+          "label":"Nickname",
+          "value":""
+        },
+        "age":{
+          "label":"Age",
+          "value":""
+        },
+        "sex":{
+          "label":"Sex",
+          "value":""
+        },
+        "race":{
+          "label":"Race",
+          "value":""
+        },
+        "religion":{
+          "label":"Religion",
+          "value":""
+        },
+        "birthdate":{
+          "label":"Birthdate/Birth sign",
+          "value":""
+        },
+        "bloodtype":{
+          "label":"Blood Type",
+          "value":""
+        },
+        "height":{
+          "label":"Height",
+          "value":""
+        },
+        "weight":{
+          "label":"Weight",
+          "value":""
+        },
+        "eyesight":{
+          "label":"Eyesight",
+          "value":""
+        },
+        "handedness":{
+          "label":"Handed-ness",
+          "value":""
+        },
+        "birthplace":{
+          "label":"Birthplace",
+          "value":""
+        },
+        "haircolour":{
+          "label":"Hair Colour",
+          "value":""
+        },
+        "eyecolour":{
+          "label":"Eye Colour",
+          "value":""
+        },
+        "typeofvoice":{
+          "label":"Type of Voice",
+          "value":""
+        },
+        "historyofsurgeries":{
+          "label":"History of Surgeries: Cavities/Illnesses",
+          "value":""
+        },
+        "scars":{
+          "label":"Scars, Burns / Skin damage, Birthmarks, Tattoos",
+          "value":""
+        },
+        "physicalcharacteristics":{
+          "label":"Other distinctive physical characteristics",
+          "value":""
+        },
+        "criminalrecord":{
+          "label":"Criminal Record / Awards / Education",
+          "value":""
+        },
+        "formativeexperiences":{
+          "label":"Formative Experiences as an infant / young child (including who involved)",
+          "value":""
+        },
+        "sexualhistory":{
+          "label":"Sexual history / Lovers Thoughts towards marriage / romance",
+          "value":""
+        },
+        "people":{
+          "label":"People that the subject looks up to / hates",
+          "value":""
+        },
+        "dreams":{
+          "label":"Dreams for the future",
+          "value":""
+        },
+        "fears":{
+          "label":"Fears",
+          "value":""
+        },
+        "personalitytraits":{
+          "label":"Personality Traits",
+          "value":""
+        },
+        "sayings":{
+          "label":"Favourite Sayings",
+          "value":""
+        },
+        "habits":{
+          "label":"Habits",
+          "value":""
+        },
+        "relationships":{
+          "label":"Relationships (Incl. Behaviour)",
+          "value":""
+        },
+        "family":{
+          "label":"Family Relationship (Incl. Behaviour)",
+          "value":""
+        },
+        "problemrelationships":{
+          "label":"Problematic Relationships",
+          "value":""
+        },
+        "employment":{
+          "label":"Employment / School",
+          "value":""
+        },
+        "economic":{
+          "label":"Economic Status / Behaviour",
+          "value":""
+        },
+        "pets":{
+          "label":"Pets / Plants",
+          "value":""
+        },
+        "personality":{
+          "label":"Personality",
+          "value":""
+        },
+        "distinctive":{
+          "label":"What is distinctive about them?",
+          "value":""
+        },
+        "specialskills":{
+          "label":"Special Skills",
+          "value":""
+        },
+        "fightingstyles":{
+          "label":"Fighting Styles",
+          "value":""
+        },
+        "abilitiestext":{
+          "label":"Abilities",
+          "value":""
+        },
+        "strenghts":{
+          "label":"Strengths",
+          "value":""
+        },
+        "weaknesses":{
+          "label":"Weaknesses",
+          "value":""
+        },
+        "hobbies":{
+          "label":"Hobbies",
+          "value":""
+        },
+        "recreation":{
+          "label":"Recreation",
+          "value":""
+        },
+        "likes":{
+          "label":"Likes",
+          "value":""
+        },
+        "dislikes":{
+          "label":"Dislikes",
+          "value":""
+        },
+        "favoriethings":{
+          "label":"Favorite Things",
+          "value":""
+        },
+        "favoritephrases":{
+          "label":"Favourite Phrases",
+          "value":""
+        },
+        "passions":{
+          "label":"Passions",
+          "value":""
+        },
+        "meaningless":{
+          "label":"Meaningless Things",
+          "value":""
+        },
+        "others":{
+          "label":"Others",
+          "value":""
+        }
+      },
+      "chartype": {
+        "value1":"",
+        "value2":"",
+        "value3":"",
+        "value4":"",
+        "value5":"",
+        "value6":""
+      },
+      "chartypes":{
+        "none":{
+          "value":""
+        },
+        "cybernetic":{
+          "value":"Cyborg"
+        },
+        "hypeman":{
+          "value":"Hypeman"
+        },
+        "hamon":{
+          "value":"Hamon"
+        },
+        "spin":{
+          "value":"Spin"
+        },
+        "vampire":{
+          "value":"Vampire"
+        },
+        "custom":{
+          "value":"Custom"
+        }
+      },
+      "typerank": 1,
+      "typenumber1": false,
+      "typenumber2": false,
+      "typenumber3": false,
+      "typenumber4": false,
+      "typenumber5": false,
+      "typenumber6": false,
+      "rtypenumber1": true,
+      "rtypenumber2": true,
+      "rtypenumber3": true,
+      "rtypenumber4": true,
+      "rtypenumber5": true,
+      "rtypenumber6": true,
+      "standtypenumber1": false,
+      "standtypenumber2": false,
+      "rstandtypenumber1": true,
+      "rstandtypenumber2": true,
+      "typeranks":{
+        "rankzero":{
+          "label":"",
+          "value":"0"
+        },
+        "rankone":{
+          "label":"Rank One",
+          "value":"1"
+        },
+        "ranktwo":{
+          "label":"Rank Two",
+          "value":"2"
+        },
+        "rankthree":{
+          "label":"Rank Three",
+          "value":"3"
+        }
+      },
+      "charpoints": {
+        "value": 5
+      },
+      "attributes": {
+        "brawns": {
+          "value": 1,
+          "label": "Brawns"
+        },
+        "brains": {
+          "value": 1,
+          "label": "Brains"
+        },
+        "bravery": {
+          "value": 1,
+          "label": "Bravery"
+        }
+      },
+      "hasstand": false,
+      "nostand": true,
+      "standstats": {
+        "name": "「Insert Stand Name」",
+        "standtype": {
+          "value1": "",
+          "value2": "",
+          "value3": ""
+        },
+        "description": "Stand Description here",
+        "ability": "Stand Name here",
+        "weakness": "",
+        "stats":{
+        "power": {
+          "dice":"1d6",
+          "label": "Power",
+          "modifier": 3
+       },
+        "speed": {
+         "dice":"1d6",
+         "label": "Speed",
+         "modifier": 3,
+         "distance": 30
+       },
+        "range": {
+         "dice":"1d6",
+         "label": "Range",
+         "modifier": 3,
+         "distance": 65
+       },
+        "durability": {
+        "dice": "1d6",
+        "label": "Durability",
+        "modifier": 3
+       },
+        "precision": {
+          "dice":"1d6",
+         "label": "precision",
+         "modifier": 3
+       },
+        "learning": {
+          "dice":"1d6",
+          "label": "Learning",
+          "modifier": 3
+       },
+       "sliders":{
+         "powerSlider":{
+           "value": 3
+         },
+         "speedSlider":{
+           "value": 3
+         },
+         "precisionSlider":{
+           "value": 3
+         },
+         "rangeSlider":{
+           "value": 3
+         },
+         "durabilitySlider":{
+          "value": 3
+         },
+         "potentialSlider":{
+           "value": 3
+    }
+       }
+      },
+    "isvillain": false,
+    "notvillain": true,
+    "bizarrefield": 0,
+    "villainactions": 1,
+    "villaintype":"Minion",
+
+    "dice": {
+      "1d6":{
+        "value": 1,
+        "label": "E",
+        "dtype": "string"
+      },
+      "2d6k1":{
+       "value": 2,
+       "label": "D",
+       "dtype": "string"
+      },
+      "2d6":{
+       "value": 3,
+       "label": "C",
+       "dtype": "string"
+      },
+      "3d6k2":{
+       "value": 4,
+       "label": "B",
+       "dtype": "string"
+      },
+      "3d6":{
+       "value": 5,
+       "label": "A",
+       "dtype": "string"
+      }
+    },
+    "standtypes":{
+      "none":{
+        "value":""
+      },
+      "closedistancepower":{
+        "value": "Close Distance Power"
+      },
+      "longdistancemanipulation":{
+        "value": "Long Distance Manipulation"
+      },
+      "fardistanceautopilot":{
+        "value": "Far Distance Autopilot"
+      },
+      "substanceassimilation":{
+        "value":"Substance Assimilation"
+      },
+      "integrated":{
+        "value":"Integrated"
+      },
+      "wearable":{
+        "value":"Wearable"
+      },
+      "colony":{
+        "value":"Colony"
+      },
+      "actstand":{
+        "value":"ACT Stand"
+      }
+    }
+  }
+  }
+  },
+  "Item": {
+    "types": ["item", "feature", "trait","stand","villainousaction"],
+    "templates": {
+      "base": {
+        "description": ""
+      }
+    },
+    "item": {
+      "templates": ["base"],
+      "quantity": 1,
+      "objectbonus": 0,
+      "weight": 0
+    },
+    "feature": {
+      "templates": ["base"],
+      "usage": "",
+      "roll": "",
+      "dice": {
+        "1d6":{
+          "value": 1,
+          "label": "E",
+          "dtype": "string"
+        },
+        "2d6k1":{
+         "value": 2,
+         "label": "D",
+         "dtype": "string"
+        },
+        "2d6":{
+         "value": 3,
+         "label": "C",
+         "dtype": "string"
+        },
+        "3d6k2":{
+         "value": 4,
+         "label": "B",
+         "dtype": "string"
+        },
+        "3d6":{
+         "value": 5,
+         "label": "A",
+         "dtype": "string"
+        }
+        
+        
+     
+      }
+    },
+    "trait":{
+      "templates": ["base"],
+      "bonus":0
+    },
+    "stand":{
+      "templates": ["base"],
+      "bonus":0,
+      "canvas":"",
+      "standstats":{
+      "stats":{
+        "power": {
+          "dice":"",
+          "label": "Power",
+          "modifier": 3
+       },
+        "speed": {
+         "dice":"",
+         "label": "Speed",
+         "modifier": 3
+       },
+        "range": {
+          "dice":"",
+       "label": "Range",
+       "modifier": 3
+       },
+        "durability": {
+        "dice": "",
+        "label": "Durability",
+        "modifier": 3
+       },
+        "precision": {
+          "dice":"",
+         "label": "precision",
+         "modifier": 3
+       },
+        "learning": {
+          "dice":"",
+          "label": "Learning",
+          "modifier": 3
+       }
+      }
+    }
+  },
+  "villainousaction":{
+    "templates": ["base"],
+    "effect":"",
+    "trigger":""
+  }
+}
+}
+

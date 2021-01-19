@@ -1,0 +1,32 @@
+<form class="{{cssClass}} wholesheet" autocomplete="off">
+    <header class="sheet-header">
+        <img class="feature-profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}"/>
+        <div class="header-fields">
+            <h1 class="feature-charname"><input name="name" type="text" value="{{item.name}}" placeholder="Name"/></h1>
+        </div>
+        <br><br>
+    </header>
+
+    {{!-- Sheet Tab Navigation --}}
+    <nav class="sheet-tabs tabs" data-group="primary">
+        <a class="item" data-tab="description">Trigger And Effect</a>
+    </nav>
+
+    {{!-- Sheet Body --}}
+    <section class="sheet-body">
+
+        {{!-- Trigger And Effect Tab --}}
+        <div class="tab flexrow" data-group="primary" data-tab="description">
+          <div>
+            <br>
+            <span class="label"> Trigger:</span>
+            <input class="triggerva" type="text" name="data.trigger" value="{{data.trigger}}" data-dtype="String"/>
+          </div>
+          <div>
+            <br>
+            <span class="label"> Effect:</span>
+            <input class="effectva" type="text" name="data.effect" value="{{data.effect}}" data-dtype="String"/>
+          </div> 
+        </div>
+    </section>
+</form>

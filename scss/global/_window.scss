@@ -1,0 +1,26 @@
+.window-app {
+  font-family: $font-primary;
+}
+
+.rollable {
+  &:hover,
+  &:focus {
+    color: rgb(255, 255, 255);
+    text-shadow: 0 0 10px rgb(255, 0, 119);
+    cursor: pointer;
+  }
+}
+
+.window-content{
+  color: rgb(209, 209, 209);
+  background: rgb(20,20,20);
+  background: linear-gradient(90deg, rgba(20,20,20,0.8748543362657564) 12%, rgba(37,31,51,0.8860588180584734) 100%),url('https://cdn.discordapp.com/attachments/779096091009482752/791815520411975731/backgroundjojo.png');
+
+.input{
+  color: #c1c1c1;
+}
+}
+::selection {
+  color: rgb(253, 253, 253);
+  background: rgba(66, 32, 61, 0.767);
+}
