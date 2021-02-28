@@ -10,7 +10,7 @@ Check The README Before Updating To A Newer Version.
 
 ### Implimented
 -Stand Graph <br>
--Automated Health Rolls<br>
+-Automated Health Rolls (on token-sheets)<br>
 -Stand And Character Roll<br>
 
 ### Planned
