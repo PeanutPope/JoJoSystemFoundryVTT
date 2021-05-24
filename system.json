@@ -24,7 +24,7 @@
   "primaryTokenAttribute": "health",
   "secondaryTokenAttribute": "power",
   "url": "https://github.com/PeanutPope/JoJoSystemFoundryVTT",
-  "manifest": "https://github.com/PeanutPope/JoJoSystemFoundryVTT/blob/main/system.json",
+  "manifest": "https://github.com/PeanutPope/JoJoSystemFoundryVTT/raw/main/system.json",
   "download": "https://github.com/PeanutPope/JoJoSystemFoundryVTT/archive/refs/heads/main.zip",
   "license": "LICENSE.txt"
 }
