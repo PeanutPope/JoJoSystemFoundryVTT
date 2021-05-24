@@ -4,7 +4,7 @@
   "description": "Jojo system for FoundryVTT!     (Credit for the Standstats-Generator goes to https://spooky-ghostwriter.tumblr.com/)",
   "version": "1.0.0",
   "minimumCoreVersion": "0.7.7",
-  "compatibleCoreVersion": "0.7.7",
+  "compatibleCoreVersion": "0.7.9",
   "templateVersion": 2,
   "author": "peanutpope",
   "esmodules": ["module/jojo.js"],
