@@ -3,7 +3,7 @@
   "title": "Jojo",
   "description": "Jojo system for FoundryVTT!     (Credit for the Standstats-Generator goes to https://spooky-ghostwriter.tumblr.com/)",
   "version": "2.0.1",
-  "minimumCoreVersion": "0.8.1",
+  "minimumCoreVersion": "0.8.6",
   "compatibleCoreVersion": "0.8.9",
   "templateVersion": 2,
   "author": "peanutpope",
