@@ -7,22 +7,22 @@
         <p style="float:left;margin-right:10px;">
          <br><br><br>
          <label for="slider_power" class="standstat-label">Power:</label>
-         <input type="range" name="data.standstats.stats.power.modifier" id="slider_power" value="{{data.standstats.stats.power.modifier}}" min="1" max="5" oninput="drawStats()">
+         <input type="range" name="data.data.standstats.stats.power.modifier" id="slider_power" value="{{data.data.standstats.stats.power.modifier}}" min="1" max="5" oninput="drawStats()">
          <br>
          <label for="slider_power" class="standstat-label">Speed:</label>
-         <input type="range" name="data.standstats.stats.speed.modifier" id="slider_speed" value="{{data.standstats.stats.speed.modifier}}" min="1" max="5" oninput="drawStats()">
+         <input type="range" name="data.data.standstats.stats.speed.modifier" id="slider_speed" value="{{data.data.standstats.stats.speed.modifier}}" min="1" max="5" oninput="drawStats()">
          <br>
          <label for="slider_power" class="standstat-label"> Range:</label>
-         <input type="range" name="data.standstats.stats.range.modifier" id="slider_range" value="{{data.standstats.stats.range.modifier}}" min="1" max="5" oninput="drawStats()">
+         <input type="range" name="data.data.standstats.stats.range.modifier" id="slider_range" value="{{data.data.standstats.stats.range.modifier}}" min="1" max="5" oninput="drawStats()">
          <br>
          <label for="slider_power" class="standstat-label">Durability:</label>
-         <input type="range" name="data.standstats.stats.durability.modifier" id="slider_durability" value="{{data.standstats.stats.durability.modifier}}" min="1" max="5" oninput="drawStats()">
+         <input type="range" name="data.data.standstats.stats.durability.modifier" id="slider_durability" value="{{data.data.standstats.stats.durability.modifier}}" min="1" max="5" oninput="drawStats()">
          <br>
          <label for="slider_power" class="standstat-label"> Precision:</label>
-         <input type="range" name="data.standstats.stats.precision.modifier" id="slider_precision" value="{{data.standstats.stats.precision.modifier}}" min="1" max="5" oninput="drawStats()">
+         <input type="range" name="data.data.standstats.stats.precision.modifier" id="slider_precision" value="{{data.data.standstats.stats.precision.modifier}}" min="1" max="5" oninput="drawStats()">
          <br>
          <label for="slider_power" class="standstat-label">Potential:</label>
-         <input type="range" name="data.standstats.stats.learning.modifier" id="slider_potential" value="{{data.standstats.stats.learning.modifier}}" min="1" max="5" oninput="drawStats()">
+         <input type="range" name="data.data.standstats.stats.learning.modifier" id="slider_potential" value="{{data.data.standstats.stats.learning.modifier}}" min="1" max="5" oninput="drawStats()">
          <br><br><br>
         </p>
        
@@ -369,122 +369,122 @@
         var potentialSlider = document.getElementById("slider_potential");
         var potential = potentialSlider.value;
            if (power == 1)
-            {name="data.standstats.stats.power.dice";
+            {name="data.data.standstats.stats.power.dice";
              value = "1d6";}
         else if
            (power == 2)
-            {name="data.standstats.stats.power.dice";
+            {name="data.data.standstats.stats.power.dice";
              value = "2d6k1";}
         else if 
            (power == 3)
-            {name="data.standstats.stats.power.dice";
+            {name="data.data.standstats.stats.power.dice";
              value = "2d6";}
         else if 
            (power == 4)
-            {name="data.standstats.stats.power.dice";
+            {name="data.data.standstats.stats.power.dice";
              value = "3d6k2";}
         else if 
            (power == 5)
-            {name="data.standstats.stats.power.dice";
+            {name="data.data.standstats.stats.power.dice";
              value = "3d6";}
         
         if (speed == 1)
-            {name="data.standstats.stats.speed.dice";
+            {name="data.data.standstats.stats.speed.dice";
              value = "1d6";}
         else if
            (speed == 2)
-            {name="data.standstats.stats.speed.dice";
+            {name="data.data.standstats.stats.speed.dice";
              value = "2d6k1";}
         else if 
            (speed == 3)
-            {name="data.standstats.stats.speed.dice";
+            {name="data.data.standstats.stats.speed.dice";
              value = "2d6";}
         else if 
            (speed == 4)
-            {name="data.standstats.stats.speed.dice";
+            {name="data.data.standstats.stats.speed.dice";
              value = "3d6k2";}
         else
-            {name="data.standstats.stats.speed.dice";
+            {name="data.data.standstats.stats.speed.dice";
              value = "3d6";}
         
         if (durability == 1)
-            {name="data.standstats.stats.durability.dice";
+            {name="data.data.standstats.stats.durability.dice";
              value = "1d6";}
         else if
            (durability == 2)
-            {name="data.standstats.stats.durability.dice";
+            {name="data.data.standstats.stats.durability.dice";
              value = "2d6k1";}
         else if 
            (durability == 3)
-            {name="data.standstats.stats.durability.dice";
+            {name="data.data.standstats.stats.durability.dice";
              value = "2d6";}
         else if 
            (durability == 4)
-            {name="data.standstats.stats.durability.dice";
+            {name="data.data.standstats.stats.durability.dice";
              value = "3d6k2";}
         else if 
            (durability == 5)
-            {name="data.standstats.stats.durability.dice";
+            {name="data.data.standstats.stats.durability.dice";
              value = "3d6";}
         
         if (precision == 1)
-            {name="data.standstats.stats.precision.dice";
+            {name="data.data.standstats.stats.precision.dice";
              value = "1d6";}
         else if
            (precision == 2)
-            {name="data.standstats.stats.precision.dice";
+            {name="data.data.standstats.stats.precision.dice";
              value = "2d6k1";}
         else if 
            (precision == 3)
-            {name="data.standstats.stats.precision.dice";
+            {name="data.data.standstats.stats.precision.dice";
              value = "2d6";}
         else if 
            (precision == 4)
-            {name="data.standstats.stats.precision.dice";
+            {name="data.data.standstats.stats.precision.dice";
              value = "3d6k2";}
         else if 
            (precision == 5)
-            {name="data.standstats.stats.precision.dice";
+            {name="data.data.standstats.stats.precision.dice";
              value = "3d6";}
         
         if (range == 1)
-            {name="data.standstats.stats.range.dice";
+            {name="data.data.standstats.stats.range.dice";
              value = "1d6";}
         else if
            (range == 2)
-            {name="data.standstats.stats.range.dice";
+            {name="data.data.standstats.stats.range.dice";
              value = "2d6k1";}
         else if 
            (range == 3)
-            {name="data.standstats.stats.range.dice";
+            {name="data.data.standstats.stats.range.dice";
              value = "2d6";}
         else if 
            (range == 4)
-            {name="data.standstats.stats.range.dice";
+            {name="data.data.standstats.stats.range.dice";
              value = "3d6k2";}
         else if 
            (range == 5)
-            {name="data.standstats.stats.range.dice";
+            {name="data.data.standstats.stats.range.dice";
              value = "3d6";}
         
         if (learning == 1)
-            {name="data.standstats.stats.learning.dice";
+            {name="data.data.standstats.stats.learning.dice";
              value = "1d6";}
         else if
            (learning == 2)
-            {name="data.standstats.stats.learning.dice";
+            {name="data.data.standstats.stats.learning.dice";
              value = "2d6k1";}
         else if 
            (learning == 3)
-            {name="data.standstats.stats.learning.dice";
+            {name="data.data.standstats.stats.learning.dice";
              value = "2d6";}
         else if 
            (learning == 4)
-            {name="data.standstats.stats.learning.dice";
+            {name="data.data.standstats.stats.learning.dice";
              value = "3d6k2";}
         else if 
            (learning == 5)
-            {name="data.standstats.stats.learning.dice";
+            {name="data.data.standstats.stats.learning.dice";
              value = "3d6";}
             }
     </script>

@@ -21,9 +21,9 @@ Hooks.once('init', async function() {
     decimals: 2
   };
 
-  // Define custom Entity classes
-  CONFIG.Actor.entityClass = jojoActor;
-  CONFIG.Item.entityClass = jojoItem;
+  // Define custom Entity classes -> NOW DOCUMENTS
+  CONFIG.Actor.documentClass = jojoActor;
+  CONFIG.Item.documentClass = jojoItem;
 
   // Register sheet application classes
   Actors.unregisterSheet("core", ActorSheet);

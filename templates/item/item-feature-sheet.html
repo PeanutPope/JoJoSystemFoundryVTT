@@ -6,11 +6,11 @@
         </div>
         <br><br>
         <div>
-            <span class="feature-dice rollable" data-roll="@feature.dice" data-label="{{data.feature.dice}}"> Roll:</span>
-            <select  class="feature-selectstats"  name="data.roll"  data-type="String">
+            <span class="feature-dice rollable" data-roll="@feature.dice" data-label="{{data.data.feature.dice}}"> Roll:</span>
+            <select  class="feature-selectstats"  name="data.data.roll"  data-type="String">
                 <option  value="">-</option>
-                {{#select item.data.roll}}
-                {{#each item.data.dice as |dice key|}}
+                {{#select item.data.data.roll}}
+                {{#each item.data.data.dice as |dice key|}}
                 <option  value="{{key}}">{{dice.label}}</option> {{/each}} {{/select}}
             </select>
         </div>
@@ -26,7 +26,7 @@
 
         {{!-- Description Tab --}}
         <div class="tab" data-group="primary" data-tab="description">
-            {{editor content=data.description target="data.description" button=true owner=owner editable=editable}}
+            {{editor content=data.data.description target="data.data.description" button=true owner=owner editable=editable}}
         </div>
     </section>
 </form>
