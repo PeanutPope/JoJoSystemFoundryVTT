@@ -9,8 +9,8 @@ Compatible with Christian Sibbitt's 1.5 Jojo sytem:
 The Standstat Graph is based on [Spooky Ghostwriter's](https://spooky-ghostwriter.tumblr.com/) Standstats-Generator
 
 # To Do:
--Update visual change to the Journal page
--Upload Compendium and connect it to the sheet
--Fix Visual glitch with 3 character archetypes
+-Update visual change to the Journal page //
+-Upload Compendium and connect it to the sheet //
+-Fix Visual glitch with 3 character archetypes //
 
 prepare for 0.9
