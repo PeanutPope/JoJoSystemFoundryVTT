@@ -106,6 +106,8 @@ export class jojoActorSheet extends ActorSheet {
   activateListeners(html) {
     super.activateListeners(html);
 
+    
+
     // Everything below here is only needed if the sheet is editable
     if (!this.options.editable) return;
 
@@ -115,14 +117,14 @@ export class jojoActorSheet extends ActorSheet {
     // Update Inventory Item
     html.find('.item-edit').click(ev => {
       const li = $(ev.currentTarget).parents(".item");
-      const item = this.actor.getOwnedItem(li.data("itemId"));
+      const item = this.actor.items.get(li.data("itemId"));
       item.sheet.render(true);
     });
 
     // Delete Inventory Item
     html.find('.item-delete').click(ev => {
       const li = $(ev.currentTarget).parents(".item");
-      this.actor.deleteOwnedItem(li.data("itemId"));
+      this.actor.deleteEmbeddedDocuments("Item", [itemId], options);
       li.slideUp(200, () => this.render(false));
     });
 

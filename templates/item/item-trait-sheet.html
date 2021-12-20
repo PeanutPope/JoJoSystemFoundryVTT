@@ -5,7 +5,7 @@
             <h1 class="charname"><input name="name" type="text" value="{{item.name}}" placeholder="Name"/></h1>
         </div>
         <div>
-            Bonus:<input class="numberbox" type="text" name="data.data.bonus" value="{{data.data.bonus}}" data-dtype="Number"/>
+            Bonus:<input class="numberbox" type="text" name="data.bonus" value="{{data.data.bonus}}" data-dtype="Number" owner=owner editable=editable/>
         </div>
     </header>
 
@@ -19,7 +19,7 @@
 
         {{!-- Description Tab --}}
         <div class="tab" data-group="primary" data-tab="description">
-            {{editor content=data.data.description target="data.data.description" button=true owner=owner editable=editable}}
+            {{editor content=data.data.description target="data.description" button=true owner=owner editable=editable}}
         </div>
     </section>
 </form>

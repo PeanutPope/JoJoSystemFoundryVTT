@@ -6,7 +6,7 @@
         </div>
         <br><br>
         <div>
-            <span class="feature-dice rollable" data-roll="@feature.dice" data-label="{{data.data.feature.dice}}"> Roll:</span>
+            <span class="feature-dice rollable" data-roll="@feature.dice" data-label="{{data.data.feature.dice}}" owner=owner editable=editable> Roll:</span>
             <select  class="feature-selectstats"  name="data.data.roll"  data-type="String">
                 <option  value="">-</option>
                 {{#select item.data.data.roll}}
@@ -26,7 +26,7 @@
 
         {{!-- Description Tab --}}
         <div class="tab" data-group="primary" data-tab="description">
-            {{editor content=data.data.description target="data.data.description" button=true owner=owner editable=editable}}
+            {{editor content=data.data.description target="data.description" button=true owner=owner editable=editable}}
         </div>
     </section>
 </form>

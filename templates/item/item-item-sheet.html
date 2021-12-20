@@ -2,19 +2,19 @@
     <header class="sheet-header">
         <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}"/>
         <div class="header-fields">
-            <h1 class="charname"><input name="name" type="text" value="{{item.name}}" placeholder="Name"/></h1>
+            <h1 class="charname"><input name="name" type="text" value="{{item.name}}" placeholder="Name" owner=owner editable=editable/></h1>
             <div class="grid grid-3col">
               <div class="resource">
                 <label class="resource-label">Quantity</label>
-                  <input type="text" name="data.data.quantity" value="{{data.data.quantity}}" data-dtype="Number"/>
+                  <input type="text" name="data.quantity" value="{{data.data.quantity}}" data-dtype="Number" owner=owner editable=editable/>
               </div>
               <div class="resource">
                 <label class="resource-label">Weight</label>
-                  <input type="text" name="data.data.weight" value="{{data.data.weight}}" data-dtype="Number"/>
+                  <input type="text" name="data.weight" value="{{data.data.weight}}" data-dtype="Number" owner=owner editable=editable/>
               </div>
               <div>
                 <label class="resource-label">Objectbonus</label>
-                 <input class="numberbox" type="text" name="data.data.objectbonus" value="{{data.data.objectbonus}}" data-dtype="Number"/>
+                 <input class="numberbox" type="text" name="data.objectbonus" value="{{data.data.objectbonus}}" data-dtype="Number" owner=owner editable=editable/>
             </div>
             </div>
         </div>
@@ -30,7 +30,7 @@
 
         {{!-- Description Tab --}}
         <div class="tab" data-group="primary" data-tab="description">
-            {{editor content=data.data.description target="data.data.description" button=true owner=owner editable=editable}}
+            {{editor content=data.data.description target="data.description" button=true owner=owner editable=editable}}
         </div>
     </section>
 </form>
