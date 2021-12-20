@@ -17,3 +17,9 @@ The Standstat Graph is based on [Spooky Ghostwriter's](https://spooky-ghostwrite
 -Fix Visual glitch with 3 character archetypes 
 
 prepare for 0.9
+
+# Potential problems
+
+This System was just updated from 0.7 to 0.8, so there could be some issues i have not found yet. 
+
+The Items, Villainous Actions, Traits and Flaws can currently only be edited by clicking on the edit button next to the name. Ill try to fix that soon.
