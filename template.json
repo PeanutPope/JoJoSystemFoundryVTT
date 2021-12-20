@@ -316,7 +316,7 @@
         },
         "description": "Stand Description here",
         "ability": "Stand Name here",
-        "weakness": "",
+        "weakness": "Stand Weakness here",
         "stats":{
         "power": {
           "dice":"1d6",

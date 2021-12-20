@@ -1,9 +1,9 @@
 {
   "name": "jojo",
-  "title": "JoJo's Bizarre Adventure - TTRPG",
-  "description": "This is a JoJo's Bizarre Adventure system for FoundryVTT! Based on Christian Sibbitt's 1.5 Jojo sytem (Credit for the Standstats-Generator goes to https://spooky-ghostwriter.tumblr.com/)",
+  "title": "Jojo",
+  "description": "Jojo system for FoundryVTT!     (Credit for the Standstats-Generator goes to https://spooky-ghostwriter.tumblr.com/)",
   "version": "2.0.1",
-  "minimumCoreVersion": "0.8.6",
+  "minimumCoreVersion": "0.8.1",
   "compatibleCoreVersion": "0.8.9",
   "templateVersion": 2,
   "author": "peanutpope",
@@ -23,8 +23,8 @@
   "initiative": "1d6 + @attributes.brawns.value + @standstats.stats.speed.modifier",
   "primaryTokenAttribute": "health",
   "secondaryTokenAttribute": "power",
-  "url": "https://github.com/PeanutPope/JoJoSystemFoundryVTT",
-  "manifest": "https://raw.githubusercontent.com/PeanutPope/JoJoSystemFoundryVTT/main/system.json",
+  "url": "",
+  "manifest": "",
   "download": "",
   "license": "LICENSE.txt"
 }

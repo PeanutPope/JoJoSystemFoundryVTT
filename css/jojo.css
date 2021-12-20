@@ -207,6 +207,13 @@
   margin-right: 10px;
 }
 
+.jojo .sheet-header .bizarrefield-img {
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 30px;
+  flex: 0 0 30px;
+  height: 30px;
+}
+
 .jojo .sheet-header .feature-dice {
   -webkit-box-flex: 0;
   -ms-flex: 0 0 30px;
@@ -524,3 +531,5 @@
   flex: 0 0 86px;
   text-align: right;
 }
+
+

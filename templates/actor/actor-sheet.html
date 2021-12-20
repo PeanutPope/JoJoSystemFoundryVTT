@@ -88,9 +88,23 @@
       <div class="grid grid-4col">
         <label class="label-header">Character Points</label>
           <input class="numberbox" type="number" name="data.charpoints.value" min="0" step="1" max="999" value="{{data.data.charpoints.value}}"/>
-          <br>
-          <br>
+          <!--
+          {{#if data.data.isvillain}}
+           <div class="grid-5col">
+           <img class="bizarrefield-img" src="MenacingSymbolSmall.png" onclick="toggleField()" width="30" height="30"/>
+           </div>
+           <br>
+           {{/if}}
+
+           {{#if data.data.notvillain}}
+           <br>
+           <br>
+           {{/if}}
+           -->
+           <br>
+           <br>
       </div>
+
       <div class="repeating_chartypes grid grid-4col">
             <label class="label-header">Character Types</label>
             <select  class="selectstats"  name="data.chartype.value1"  data-type="String">
@@ -316,7 +330,9 @@
               <label class="label">Add</label>
             </div>
         </div>
-        <div class="repeating_standtypes grid grid-3col {{#if data.data.rstandtypenumber1}}hidefield{{/if}}">
+
+        {{#if data.data.standtypenumber1}}
+        <div class="repeating_standtypes grid grid-3col">
             <label class="standstat-label">Stand Types</label>
               
                 <select  class="standtypes"  name="data.standstats.standtype.value2"  data-type="String">
@@ -331,7 +347,10 @@
                 <label class="label">Add</label>
               </div>
         </div>
-        <div class="repeating_standtypes grid grid-3col {{#if data.data.rstandtypenumber2}}hidefield{{/if}}">
+        {{/if}}
+
+        {{#if data.data.standtypenumber2}}
+        <div class="repeating_standtypes grid grid-3col">
             <label class="standstat-label">Stand Types</label>
               
                 <select  class="standtypes"  name="data.standstats.standtype.value3"  data-type="String">
@@ -345,6 +364,7 @@
                 <label class="label"></label>
               </div>
         </div>
+        {{/if}}
 
            <div class="Standstatsbox flexrow">
             <div class="standstatsbox-left" onload="drawStats()" ;>
@@ -396,19 +416,19 @@
         
         <div class="standtext">
           <label  class="standstat-label"> Ability: </label>
-              {{editor content=data.data.standstats.ability target="data.data.standstats.ability" button=true owner=owner editable=editable}}
+              {{editor content=data.data.standstats.ability target="data.standstats.ability" button=true owner=owner editable=editable}}
               <br>
           </div>
   
           <div class="standtext">
           <label  class="standstat-label"> Weakness: </label>
-          {{editor content=data.data.standstats.weakness target="data.data.standstats.weakness" button=true owner=owner editable=editable}}
+          {{editor content=data.data.standstats.weakness target="data.standstats.weakness" button=true owner=owner editable=editable}}
           <br>
           </div>
   
           <div class="standtext">
           <label  class="standstat-label"> Description: </label>
-          {{editor content=data.data.standstats.description target="data.data.standstats.description" button=true owner=owner editable=editable}}
+          {{editor content=data.data.standstats.description target="data.standstats.description" button=true owner=owner editable=editable}}
           <br>
           
           <input type="checkbox" id="transparent_colour" onclick="drawStats()"width="0" height="0" style="opacity:0" disabled><br>
@@ -542,6 +562,7 @@ function SpinBox(a,b){
     var featureundeadvitalitycheck = true;
     var featureheartofironcheck = true;
     var featuremindofsteelcheck = true;
+    
 
 
     var e = "1d6";
@@ -714,7 +735,10 @@ function SpinBox(a,b){
     ui.notifications.info(`${actor.data.data.name} rolled for max HP`)
     }
 
-
+    var bizarrefield = "{{data.data.standstats.bizarrefield}}";
+    async function toggleField() {
+      console.log("Bizzarefield Function Called!")
+    }
     
 
     
