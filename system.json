@@ -23,8 +23,8 @@
   "initiative": "1d6 + @attributes.brawns.value + @standstats.stats.speed.modifier",
   "primaryTokenAttribute": "health",
   "secondaryTokenAttribute": "power",
-  "url": "",
-  "manifest": "",
+  "url": "https://github.com/PeanutPope/JoJoSystemFoundryVTT",
+  "manifest": "https://raw.githubusercontent.com/PeanutPope/JoJoSystemFoundryVTT/main/system.json",
   "download": "",
   "license": "LICENSE.txt"
 }
