@@ -107,7 +107,7 @@
 
       <div class="repeating_chartypes grid grid-4col">
             <label class="label-header">Character Types</label>
-            <select  class="selectstats"  name="data.chartype.value1"  data-type="String">
+            <select  class="selectstats label-header"  name="data.chartype.value1"  data-type="String">
               {{#select actor.data.data.chartype.value1}}
               {{#each actor.data.data.chartypes as |chartypes key|}}
               
@@ -115,7 +115,7 @@
               
               </select>
               <div class = "ranks">
-                <select  class="selectstats"  name="data.typerank.value1"  data-type="String">
+                <select  class="selectstats label-header"  name="data.typerank.value1"  data-type="String">
                   {{#select actor.data.data.typerank.value1}}
                   {{#each actor.data.data.typeranks as |typeranks key|}}
                   
@@ -131,7 +131,7 @@
         {{#if data.data.typenumber1}}
         <div class="repeating_chartypes grid grid-4col">
             <label class="label"></label>
-            <select  class="selectstats"  name="data.chartype.value2"  data-type="String">
+            <select  class="selectstats label-header"  name="data.chartype.value2"  data-type="String">
               {{#select actor.data.data.chartype.value2}}
               {{#each actor.data.data.chartypes as |chartypes key|}}
               
@@ -139,7 +139,7 @@
               
               </select>
               <div class = "ranks">
-                <select  class="selectstats"  name="data.typerank.value2"  data-type="String">
+                <select  class="selectstats label-header"  name="data.typerank.value2"  data-type="String">
                   {{#select actor.data.data.typerank.value2}}
                   {{#each actor.data.data.typeranks as |typeranks key|}}
                   
@@ -157,7 +157,7 @@
         {{#if data.data.typenumber2}}
         <div class="repeating_chartypes grid grid-4col">
             <label class="label"></label>
-            <select  class="selectstats"  name="data.chartype.value3"  data-type="String">
+            <select  class="selectstats label-header"  name="data.chartype.value3"  data-type="String">
               {{#select actor.data.data.chartype.value3}}
               {{#each actor.data.data.chartypes as |chartypes key|}}
               
@@ -165,7 +165,7 @@
               
               </select>
               <div class = "ranks ">
-                <select  class="selectstats"  name="data.typerank.value3"  data-type="String">
+                <select  class="selectstats label-header"  name="data.typerank.value3"  data-type="String">
                   {{#select actor.data.data.typerank.value3}}
                   {{#each actor.data.data.typeranks as |typeranks key|}}
                   
@@ -637,28 +637,29 @@ function SpinBox(a,b){
         return;
     }
     let actor = canvas.tokens.controlled[0].actor
+    //let actor = token.actor
     console.log("Actor: ", actor);
     //roll for hp definition
-    let health_roll = new Roll(`${actor.data.data.attributes.brawns.value}d6 + ${actor.data.data.standstats.stats.durability.dice}`)
-      .roll()
+    let health_roll =  await new Roll(`${actor.data.data.attributes.brawns.value}d6 + ${actor.data.data.standstats.stats.durability.dice}`)
+    .evaluate()
       
-    let ruleoffour = new Roll(`${actor.data.data.attributes.brawns.value}*4`)
-    .roll()
+    let ruleoffour =  await new Roll(`${actor.data.data.attributes.brawns.value}*4`)
+    .evaluate()
 
-    let mindofsteel = new Roll(`${actor.data.data.attributes.brawns.value}d6 + ${actor.data.data.standstats.stats.durability.dice} + ${actor.data.data.attributes.brains.value}d6`)
-    .roll()
+    let mindofsteel =  await new Roll(`${actor.data.data.attributes.brawns.value}d6 + ${actor.data.data.standstats.stats.durability.dice} + ${actor.data.data.attributes.brains.value}d6`)
+    .evaluate()
 
-    let heartofiron = new Roll(`${actor.data.data.attributes.brawns.value}d6 + ${actor.data.data.standstats.stats.durability.dice} + ${actor.data.data.attributes.bravery.value}d6`)
-    .roll()
+    let heartofiron =  await new Roll(`${actor.data.data.attributes.brawns.value}d6 + ${actor.data.data.standstats.stats.durability.dice} + ${actor.data.data.attributes.bravery.value}d6`)
+    .evaluate()
 
-    let undeadvitality = new Roll(`${actor.data.data.attributes.brawns.value}*6`)
-    .roll()
+    let undeadvitality =  await new Roll(`${actor.data.data.attributes.brawns.value}*6`)
+    .evaluate()
 
     //Does the token have Mind of Steel (A)? featuremindofsteelcheck is false if the feature is there
     console.log("Actor: ", actor);
-    let featureheartofiron = actor.items.find(item => item.data.name == "Heart of Iron (B)")
-    let featuremindofsteel = actor.items.find(item => item.data.name == "Mind of Steel (A)")
-    let featureundeadvitality = actor.items.find(item => item.data.name == "Undead Vitality")
+    let featureheartofiron = actor.items.getName("Heart of Iron (B)")
+    let featuremindofsteel = actor.items.getName("Mind of Steel (A)")
+    let featureundeadvitality = actor.items.getName("Undead Vitality")
     let ruleoffourcheck = true
 
     if(featuremindofsteel == null || featuremindofsteel == undefined){
@@ -727,10 +728,12 @@ function SpinBox(a,b){
     console.log("rule of four",ruleoffour.total);
     
     //update the actors hp
-    await actor.update({"data.data.health.max": newHp});
-    actor.update({"data.data.health.value": newHp});
-    
-    ui.notifications.info(`${actor.data.data.name} rolled for max HP`)
+    console.log("Actor Update Initialised");
+    console.log(`${actor.data.name}`);
+    await actor.update({"data.health.max": newHp});
+    actor.update({"data.health.value": newHp});
+    console.log(`${actor.data.name}`);
+    ui.notifications.info(`${actor.data.name} rolled for max HP`)
     }
 
     var bizarrefield = "{{data.data.standstats.bizarrefield}}";
@@ -996,7 +999,7 @@ var prm = "{{data.data.standstats.stats.precision.modifier}}";
 var lm = "{{data.data.standstats.stats.learning.modifier}}";
 
 function standRoll() {
-    new Roll(`${dice} + ${trait} + ${flaw} + ${object} + ${mod}`).roll();
+    new Roll(`${dice} + ${trait} + ${flaw} + ${object} + ${mod}`).evaluate();
 //Dialog options dont refer to the values
 let dialogOptions = `
                     <option value = ${pod}> Power </option> 
@@ -1057,7 +1060,7 @@ new Dialog ({
     var braverydice = "1d6+" + "{{data.data.attributes.bravery.value}}";
 
 function charRoll() {
-    new Roll(`${dice} + ${trait} + ${flaw} + ${object} + ${mod}`).roll();
+    new Roll(`${dice} + ${trait} + ${flaw} + ${object} + ${mod}`).evaluate();
 //Dialog options dont refer to the values
 let dialogOptions = `
                     <option value = ${brawnsdice}> Brawns </option> 

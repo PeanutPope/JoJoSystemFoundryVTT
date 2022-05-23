@@ -445,12 +445,14 @@
     },
     "item": {
       "templates": ["base"],
+      "name": "New Item",
       "quantity": 1,
       "objectbonus": 0,
       "weight": 0
     },
     "feature": {
       "templates": ["base"],
+      "name": "New Feature",
       "usage": "",
       "roll": "",
       "dice": {
@@ -486,6 +488,7 @@
     },
     "trait":{
       "templates": ["base"],
+      "name": "New Trait",
       "bonus":0
     },
     "stand":{
@@ -529,6 +532,7 @@
   },
   "villainousaction":{
     "templates": ["base"],
+    "name": "New Villainous Action",
     "effect":"",
     "trigger":""
   }
