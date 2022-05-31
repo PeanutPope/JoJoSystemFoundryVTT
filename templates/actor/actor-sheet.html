@@ -23,18 +23,18 @@
           <div class="grid-2col" >
             <label class="rollsclickable charpoints-types label-header" onclick="charRoll()" >Character Roll</label>
             <label class="rollsclickable charpoints-types label-header" onclick="standRoll()" >Stand Roll</label>
-         </div>
+          </div>
           </div>
           <div class="header-right">
           <div class="header-fields">
 
             <div class="flexrow flex-group-center">
 
-               <h1 class="charname">
-                 <input name="name" type="text" value="{{actor.name}}" placeholder="Name"/>
-               </h1>
+              <h1 class="charname">
+                <input name="name" type="text" value="{{actor.name}}" placeholder="Name"/>
+              </h1>
 
-               
+
 
             </div>
 
@@ -86,23 +86,24 @@
           </div> 
       <div class="charpoints-types" style="height:180px">
       <div class="grid grid-4col">
-        <label class="label-header">Character Points</label>
-          <input class="numberbox" type="number" name="data.charpoints.value" min="0" step="1" max="999" value="{{data.data.charpoints.value}}"/>
-          <!--
+          
+          <label class="label-header">Character Points</label>
+          <input class="numberbox" style="text-align: center" type="number" name="data.charpoints.value" min="0" step="1" max="999" value="{{data.data.charpoints.value}}"/>
+          
           {{#if data.data.isvillain}}
-           <div class="grid-5col">
-           <img class="bizarrefield-img" src="MenacingSymbolSmall.png" onclick="toggleField()" width="30" height="30"/>
-           </div>
-           <br>
-           {{/if}}
+          <label class="label-header" style="margin-top:6px">Bizarre Field</label>
+          <div class="resource-content flexrow flex-center flex-between">
+            <input type="text" name="data.bizarrefield" class="spinBox" value="{{data.data.bizarrefield}}" data-dtype="Number" style="height:26px"/>
+            <span> / </span>
+            <input type="text" name="data.bizarrefieldmax" value="{{data.data.bizarrefieldmax}}" data-dtype="Number" style="height:26px"/>
+          </div>
+          {{/if}}
 
-           {{#if data.data.notvillain}}
-           <br>
-           <br>
-           {{/if}}
-           -->
-           <br>
-           <br>
+          {{#if data.data.notvillain}}
+          <br width="0" height="0">
+          <br width="0" height="0">
+          {{/if}}
+          
       </div>
 
       <div class="repeating_chartypes grid grid-4col">
@@ -202,7 +203,7 @@
         {{#if data.data.isvillain}}
         <a class="item" data-tab="villain">Villain</a>
         {{/if}}
-       
+
     </nav>
 
     {{!-- Sheet Body --}}
@@ -223,12 +224,12 @@
                 
                 <li  class="arakisheet grid grid-2col"  data-arakisheete="{{key}}">
                 
-                 <span  class="arakisheet-label label"  name="data.arakisheet.{{key}}.label" ><b>{{label}}</b></span>
+                <span  class="arakisheet-label label"  name="data.arakisheet.{{key}}.label" ><b>{{label}}</b></span>
                 
-                 <div  class="arakisheet-editbox">
-                   <input  class="arakisheet-textbox"  type="text"  name="data.arakisheet.{{key}}.value"  value="{{araki.value}}"  data-dtype="String"/>
-                 </div>
-                 
+                <div  class="arakisheet-editbox">
+                  <input  class="arakisheet-textbox"  type="text"  name="data.arakisheet.{{key}}.value"  value="{{araki.value}}"  data-dtype="String"/>
+                </div>
+
                 </li>
                 
                 {{/each}}
@@ -250,7 +251,7 @@
               <li class="item flexrow" data-item-id="{{item._id}}">
                   <div class="item-image"><img src="{{item.img}}" title="{{item.name}}" th="2wid4" height="24"/></div>
                   <h4 class="item-name item-edit rollable">{{item.name}}</h4>
-                  Bonus:<input class="numberbox" type="text" name="item.bonus" value="{{item.data.bonus}}" data-dtype="Number" owner=owner editable=editable/>
+                  |Bonus|: <input class="numberbox" type="text" style="text-align: center" name="item.bonus" value="{{item.data.bonus}}" data-dtype="Number" owner=owner editable=editable/>
                   <div class="item-controls">
                       <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
                   </div>
@@ -258,7 +259,7 @@
           {{/each}}
           </ol>
       </div>
-     
+
 
         {{!-- Owned Items Tab --}}
         <div class="tab items" data-group="primary" data-tab="items">
@@ -273,8 +274,8 @@
             {{#each actor.gear as |item id|}}
                 <li class="item flexrow" data-item-id="{{item._id}}">
                     <div class="item-image"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/></div>
-                     <h4 class="item-name item-edit rollable">{{item.name}}</h4>
-                     Bonus:<input class="numberbox" type="text" name="item.objectbonus" value="{{item.data.objectbonus}}" data-dtype="Number" owner=owner editable=editable/>
+                    <h4 class="item-name item-edit rollable">{{item.name}}</h4>
+                    |Bonus|: <input class="numberbox" type="text" style="text-align: center" name="item.objectbonus" value="{{item.data.objectbonus}}" data-dtype="Number" owner=owner editable=editable/>
                       <div class="item-controls">
                         <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
                       </div>
@@ -358,55 +359,55 @@
                   
                   <option  value="{{key}}">{{standtypes.value}}</option> {{/each}} {{/select}}
                   </select>
-             
+
               <div>
                 <label class="label"></label>
               </div>
         </div>
         {{/if}}
 
-           <div class="Standstatsbox flexrow">
+            <div class="Standstatsbox flexrow">
             <div class="standstatsbox-left" onload="drawStats()" ;>
 
             <div class="flexrow standstatsbox-small">
-             <span class="standstat-dice rollable label" data-roll=" @standstats.stats.power.dice" data-label="{{data.data.standstats.stats.power.dice}}" oninput="drawStats()">Power:</span>
-             <input type="range" name="data.standstats.stats.power.modifier" class="slider" id="slider_power" value="{{data.data.standstats.stats.power.modifier}}" min="1" max="5" oninput="drawStats()">
-             <input type="text" name="data.standstats.stats.power.dice" class="attribute-dice" value="{{data.data.standstats.stats.power.dice}}" disabled>
+              <span class="standstat-dice rollable label" data-roll=" @standstats.stats.power.dice" data-label="{{data.data.standstats.stats.power.dice}}" oninput="drawStats()">Power:</span>
+              <input type="range" name="data.standstats.stats.power.modifier" class="slider" id="slider_power" value="{{data.data.standstats.stats.power.modifier}}" min="1" max="5" oninput="drawStats()">
+              <input type="text" name="data.standstats.stats.power.dice" class="attribute-dice" value="{{data.data.standstats.stats.power.dice}}" disabled>
             </div>
 
             <div class="flexrow standstatsbox-small">
-             <span class="standstat-dice rollable label" data-roll="@standstats.stats.speed.dice" data-label="{{data.data.standstats.stats.speed.dice}}" oninput="drawStats()">Speed:</span>
-             <input type="range" name="data.standstats.stats.speed.modifier"class="slider" id="slider_speed" value="{{data.data.standstats.stats.speed.modifier}}" min="1" max="5" oninput="drawStats()">
-             <input type="text" name="data.standstats.stats.speed.dice" class="attribute-dice" value="{{data.data.standstats.stats.speed.dice}}" disabled>
+              <span class="standstat-dice rollable label" data-roll="@standstats.stats.speed.dice" data-label="{{data.data.standstats.stats.speed.dice}}" oninput="drawStats()">Speed:</span>
+              <input type="range" name="data.standstats.stats.speed.modifier"class="slider" id="slider_speed" value="{{data.data.standstats.stats.speed.modifier}}" min="1" max="5" oninput="drawStats()">
+              <input type="text" name="data.standstats.stats.speed.dice" class="attribute-dice" value="{{data.data.standstats.stats.speed.dice}}" disabled>
             </div>
 
             <div class="flexrow standstatsbox-small">
-             <span class="standstat-dice rollable label" data-roll="@standstats.stats.range.dice" data-label="{{data.data.standstats.stats.range.dice}}" oninput="drawStats()">Range:</span>
-             <input type="range" name="data.standstats.stats.range.modifier"class="slider" id="slider_range" value="{{data.data.standstats.stats.range.modifier}}" min="1" max="5" oninput="drawStats()">
-             <input type="text" name="data.standstats.stats.range.dice" class="attribute-dice" value="{{data.data.standstats.stats.range.dice}}" disabled>
+              <span class="standstat-dice rollable label" data-roll="@standstats.stats.range.dice" data-label="{{data.data.standstats.stats.range.dice}}" oninput="drawStats()">Range:</span>
+              <input type="range" name="data.standstats.stats.range.modifier"class="slider" id="slider_range" value="{{data.data.standstats.stats.range.modifier}}" min="1" max="5" oninput="drawStats()">
+              <input type="text" name="data.standstats.stats.range.dice" class="attribute-dice" value="{{data.data.standstats.stats.range.dice}}" disabled>
             </div>
             
             <div class="flexrow standstatsbox-small">
-             <span class="standstat-dice rollable label" data-roll="@standstats.stats.durability.dice" data-label="{{data.data.standstats.stats.durability.dice}}" oninput="drawStats()">Durability:</span>
-             <input type="range" name="data.standstats.stats.durability.modifier"class="slider" id="slider_durability" value="{{data.data.standstats.stats.durability.modifier}}" min="1" max="5" oninput="drawStats()">
-             <input type="text" name="data.standstats.stats.durability.dice" class="attribute-dice" value="{{data.data.standstats.stats.durability.dice}}" disabled>
+              <span class="standstat-dice rollable label" data-roll="@standstats.stats.durability.dice" data-label="{{data.data.standstats.stats.durability.dice}}" oninput="drawStats()">Durability:</span>
+              <input type="range" name="data.standstats.stats.durability.modifier"class="slider" id="slider_durability" value="{{data.data.standstats.stats.durability.modifier}}" min="1" max="5" oninput="drawStats()">
+              <input type="text" name="data.standstats.stats.durability.dice" class="attribute-dice" value="{{data.data.standstats.stats.durability.dice}}" disabled>
             </div>
 
             <div class="flexrow standstatsbox-small">
-             <span class="standstat-dice rollable label" data-roll="@standstats.stats.precision.dice" data-label="{{data.data.standstats.stats.precision.dice}}" oninput="drawStats()">Precision:</span>
-             <input type="range" name="data.standstats.stats.precision.modifier"class="slider" id="slider_precision" value="{{data.data.standstats.stats.precision.modifier}}" min="1" max="5" oninput="drawStats()">
-             <input type="text" name="data.standstats.stats.precision.dice" class="attribute-dice" value="{{data.data.standstats.stats.precision.dice}}" disabled>
+              <span class="standstat-dice rollable label" data-roll="@standstats.stats.precision.dice" data-label="{{data.data.standstats.stats.precision.dice}}" oninput="drawStats()">Precision:</span>
+              <input type="range" name="data.standstats.stats.precision.modifier"class="slider" id="slider_precision" value="{{data.data.standstats.stats.precision.modifier}}" min="1" max="5" oninput="drawStats()">
+              <input type="text" name="data.standstats.stats.precision.dice" class="attribute-dice" value="{{data.data.standstats.stats.precision.dice}}" disabled>
             </div>
 
             <div class="flexrow standstatsbox-small">
-             <span class="standstat-dice rollable label" data-roll="@standstats.stats.learning.dice" data-label="{{data.data.standstats.stats.learning.dice}}" oninput="drawStats()">Learning:</span>
-             <input type="range" name="data.standstats.stats.learning.modifier"class="slider" id="slider_potential" value="{{data.data.standstats.stats.learning.modifier}}" min="1" max="5" oninput="drawStats()">
-             <input type="text" name="data.standstats.stats.learning.dice" class="attribute-dice" value="{{data.data.standstats.stats.learning.dice}}" disabled>
+              <span class="standstat-dice rollable label" data-roll="@standstats.stats.learning.dice" data-label="{{data.data.standstats.stats.learning.dice}}" oninput="drawStats()">Learning:</span>
+              <input type="range" name="data.standstats.stats.learning.modifier"class="slider" id="slider_potential" value="{{data.data.standstats.stats.learning.modifier}}" min="1" max="5" oninput="drawStats()">
+              <input type="text" name="data.standstats.stats.learning.dice" class="attribute-dice" value="{{data.data.standstats.stats.learning.dice}}" disabled>
             </div>
 
           </div>
 
-           <p class="Statscanvas" style="float:right;">
+          <p class="Statscanvas" style="float:right;">
           <canvas id="myCanvas" width="300" height="300" onload="drawStats()"></canvas>
           <br>
           <input type="color" id="colour_radar" oninput="drawStats()"width="0" height="0" style="float:right;" value="#ff0000">
@@ -461,7 +462,11 @@
           <li class="item flexrow" data-item-id="{{item._id}}">
               <div class="item-image"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/></div>
               <h4 class="item-name item-edit rollable">New Villainous Action</h4>
-              Trigger:<input class="trigger" type="text" name="item.trigger" value="{{item.data.trigger}}" data-dtype="String"/>
+              
+              <!--Trigger:<input class="trigger flexrow" type="text" name="item.trigger" value="{{item.data.trigger}}" data-dtype="String"/>
+              Effect:<input class="effect flexrow" type="text" name="item.trigger" value="{{item.data.trigger}}" data-dtype="String"/>
+              -->
+
               <div class="item-controls">
                   <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
               </div>
@@ -633,7 +638,7 @@ function SpinBox(a,b){
         //Is a token selected? If not, error
         console.log("Tokens: ", canvas.tokens.controlled);
       if(canvas.tokens.controlled.length == 0 || canvas.tokens.controlled.length > 1){
-         ui.notifications.error("Please select a single token");
+        ui.notifications.error("Please select a single token");
         return;
     }
     let actor = canvas.tokens.controlled[0].actor
@@ -668,7 +673,7 @@ function SpinBox(a,b){
     }
     else{
       featuremindofsteelcheck = false;
-     
+
       console.log("Mind of steel feature on character");
     }
     
@@ -690,32 +695,32 @@ function SpinBox(a,b){
     }
     else{
       featureundeadvitalitycheck = false;
-     
+    
       console.log("Undead Vitality feature on character");
- }
+}
   
 
 
     //set token hp
     let newHp = 1;
     if(featureundeadvitalitycheck == false){
-       newHp = undeadvitality.total; 
-       console.log("undeadifinitialised");
+      newHp = undeadvitality.total; 
+      console.log("undeadifinitialised");
     }
     else if(featureheartofironcheck == false){
-       newHp = heartofiron.total; 
-       console.log("heartifinitialised");
+      newHp = heartofiron.total; 
+      console.log("heartifinitialised");
     }
     else if(featuremindofsteelcheck == false){
-       newHp = mindofsteel.total; 
-       console.log("mindifinitialised");
+      newHp = mindofsteel.total; 
+      console.log("mindifinitialised");
     }
     else if(ruleoffourcheck == false){
-       newHp = ruleoffour.total; 
-       console.log("regularhealth");
+      newHp = ruleoffour.total; 
+      console.log("regularhealth");
     }
     else {
-       newHp = health_roll.total;
+      newHp = health_roll.total;
     }
     if (newHp <= ruleoffour.total){
       console.log("The Rule of Four applies")
@@ -1120,7 +1125,7 @@ new Dialog ({
     console.log("mod",mod);
     new Roll(`${dice} + ${trait} + ${flaw} + ${object} + ${mod}`).toMessage();
     }
-   
+
     </script>
     </section>
 </form>

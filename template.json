@@ -374,6 +374,7 @@
     "isvillain": false,
     "notvillain": true,
     "bizarrefield": 0,
+    "bizarrefieldmax": 0,
     "villainactions": 1,
     "villaintype":"Minion",
 
